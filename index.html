@@ -10,7 +10,7 @@
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play The Concert: An Interactive Aural Odyssey.</tw-noscript></noscript></tw-story>
 <tw-storydata name="The Concert: An Interactive Aural Odyssey" startnode="32" creator="Twine" creator-version="2.7.0" format="Harlowe" format-version="3.3.6" ifid="30c5d0b4-dcca-4181-94b2-239f8fb78456" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
-  background-color: #111111;
+  background-color: #191919;
 }
 
 .cover {
@@ -27,45 +27,51 @@ h1 {
   text-align: center; 
   font-size: 2.5em;
 }
-
-/*
-i {
-  font-size: 2rem;
-  font-style: normal !important;
+.emoji {
+  font-size: 2em;
 }
-*/
-
-
+figcaption {
+  font-size: .75em; 
+}
 figure br {
   height: 0;
   width: 0;
   display: none;
 }
-
-/*
-figure {
-  max-width: 768px;
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1rem;
-}
-*/
-figcaption {
- font-size: 1.25rem; 
-}
 figure, figcaption, audio {
-  flex: 1;
   text-align: center;
+}
+figure {
+  margin: 0; 
+}
+audio {
+  flex: 1;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+figure > div {
+  display: flex;
+  align-items: center;
+}
+
+tw-link {
+  display: inline-block;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  background: #333333;
+  transition: all ease-in-out 0.1s;
+  margin-top: 1em;
+}
+
+tw-link:hover {
+  background: #444444;
+  transform: translateY(-4px);
+}
+
+tw-link:active, tw-link:visited {
 }
 
 @media screen and (max-width: 768px) {
-  figure {
-    flex-direction: column;
-    gap: unset;
-  }
-  
   .image-grid {
     width: 75%; 
   }
@@ -73,10 +79,27 @@ figure, figcaption, audio {
   .image-grid-row {
     flex-direction: column; 
   }
-  
+
   h1 {
     text-align: center; 
     font-size: 2em;
+  }
+  .emoji {
+    font-size: 1.5em;
+  }
+  audio {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+  figcaption {
+    font-size: .75em; 
+  }
+  i {
+    font-size: 0.9em; 
+  }
+  tw-link {
+    width: 100%;
+    font-size: 0.9em;
   }
 }
 
@@ -111,23 +134,26 @@ GAME OVER.
 
 [[Play again?|Intro]]
 
-(set:$DiedByCandyBar to true)</tw-passagedata><tw-passagedata pid="2" name="Intro" tags="" position="725,600" size="200,200">&lt;h1&gt;🎤 THE CONCERT 🎸&lt;/h1&gt;
+(set:$DiedByCandyBar to true)</tw-passagedata><tw-passagedata pid="2" name="Intro" tags="" position="725,600" size="200,200">&lt;h1&gt;THE CONCERT&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;The Concert&quot;:&lt;/figcaption&gt;
-    &lt;audio
-        controls        src=&quot;https://thesestains.com/theconcert/MP3s/01%20[Intro]%20The%20Concert.mp3&quot;&gt;
-            &lt;a href=&quot;https://thesestains.com/theconcert/MP3s/01%20[Intro]%20The%20Concert.mp3&quot;&gt;
-                Download audio
-            &lt;/a&gt;
-    &lt;/audio&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;emoji&quot;&gt;🎤&lt;/div&gt;
+      &lt;audio
+          controls        src=&quot;https://thesestains.com/theconcert/MP3s/01%20[Intro]%20The%20Concert.mp3&quot;&gt;
+              &lt;a href=&quot;https://thesestains.com/theconcert/MP3s/01%20[Intro]%20The%20Concert.mp3&quot;&gt;
+                  Download audio
+              &lt;/a&gt;
+      &lt;/audio&gt;
+      &lt;div class=&quot;emoji&quot;&gt;🎸&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/figure&gt;
-\//You&#39;ve been waiting for months, but the time has finally arrived. Tonight you&#39;re going to see your favorite band, These Stains Are Who I Am, live in concert! You&#39;ve got your ticket, though you can&#39;t help but feel like something is missing. Suddenly you remember: your favorite These Stains t-shirt is still inside! The bus downtown is about to arrive, you need to head to the bus stop now. But you can’t leave your shirt behind, can you?//
+//You&#39;ve been waiting for months, but the time has finally arrived. Tonight you&#39;re going to see your favorite band, These Stains Are Who I Am, live in concert! You&#39;ve got your ticket, though you can&#39;t help but feel like something is missing. Suddenly you remember: your favorite These Stains t-shirt is still inside! The bus downtown is about to arrive, you need to head to the bus stop now. But you can’t leave your shirt behind, can you?//
 
 What do you do?
-
-[[Go back for the shirt|Shirt]]
-[[Continue to the bus stop|Bus]]
+[[👕 Go back for the shirt|Shirt]]
+[[🚍 Continue to the bus stop|Bus]]
 \(set:$HasCandyBar to false)
 
 &lt;hr/&gt;
@@ -150,10 +176,12 @@ As I&#39;m running down the stairs
 My heart begins to burst
 I remember what&#39;s back there
 My fave These Stains t-shirt]
-</tw-passagedata><tw-passagedata pid="3" name="Bus" tags="" position="1100,750" size="100,100">&lt;h1&gt;🚌 STARS ALIGN ⭐️&lt;/h1&gt;
+</tw-passagedata><tw-passagedata pid="3" name="Bus" tags="" position="1100,750" size="100,100">&lt;h1&gt;STARS ALIGN&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Stars Align&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;emoji&quot;&gt;🚍&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/03%20[Bus]%20Stars%20Align.mp3&quot;&gt;
@@ -161,13 +189,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/03%20[Bus]%20Stars%20Align.mp3
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+      &lt;div class=&quot;emoji&quot;&gt;⭐️&lt;/div&gt;
+      &lt;div&gt;
 &lt;/figure&gt;
-\//You caught the bus, having sacrificed the chance to get your t-shirt signed. It&#39;s a bad start to the night, but hope is not lost! You settle into your seat and look out the window, gazing at the buildings and blurring lights. You put on your headphones and look for the perfect song to get you back in the zone.//
+//You caught the bus, having sacrificed the chance to get your t-shirt signed. It&#39;s a bad start to the night, but hope is not lost! You settle into your seat and look out the window, gazing at the buildings and blurring lights. You put on your headphones and look for the perfect song to get you back in the zone.//
 
 What do you listen to?
-
-[[Heavy metal|Metal]]
-[[Indie folk|Folk]]
+[[🏆 Heavy metal|Metal]]
+[[🧔 Indie folk|Folk]]
 
 &lt;hr/&gt;
 (text-style:&quot;superscript&quot;)[Waiting on the corner
@@ -193,10 +222,12 @@ Many stops to go, slip away
 Like the blurring lights outside
 Things don&#39;t always go my way
 But tonight the stars align]
-</tw-passagedata><tw-passagedata pid="4" name="Shirt" tags="" position="1100,550" size="100,100">&lt;h1&gt;👕 MY SHIRT 🤘&lt;/h1&gt;
+</tw-passagedata><tw-passagedata pid="4" name="Shirt" tags="" position="1100,550" size="100,100">&lt;h1&gt;MY SHIRT&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;My Shirt&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;emoji&quot;&gt;👕&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/02%20[Shirt]%20My%20Shirt.mp3&quot;&gt;
@@ -204,13 +235,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/02%20[Shirt]%20My%20Shirt.mp3&
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🤘&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/figure&gt;
-\//You (t8n:&quot;shudder&quot;)+(t8n-time:3s)[tear apart] your bedroom looking for your These Stains t-shirt. Of course it&#39;s in the last place you look, folded neatly in a pile of clean laundry. You put on the shirt and swing through the kitchen for a snack before you leave, grabbing a candy bar out of the pantry. You run to the bus stop just to watch the tail lights fade in the distance. Guess you&#39;ll have to walk. As you pass a nearby store, you see something rustling in a dumpster... what could it be?//
+//You (t8n:&quot;shudder&quot;)+(t8n-time:3s)[tear apart] your bedroom looking for your These Stains t-shirt. Of course it&#39;s in the last place you look, folded neatly in a pile of clean laundry. You put on the shirt and swing through the kitchen for a snack before you leave, grabbing a candy bar out of the pantry. You run to the bus stop just to watch the tail lights fade in the distance. Guess you&#39;ll have to walk. As you pass a nearby store, you see something rustling in a dumpster... what could it be?//
 
 What do you do?
-
-[[Approach the dumpster|Dumpster]]
-[[Continue walking|Walking]]
+[[🗑 Approach the dumpster|Dumpster]]
+[[👟 Continue walking|Walking]]
 \(set:$HasCandyBar to true)
 \(set:$HasRaccoonBlessing to false)
 
@@ -238,10 +270,12 @@ Something feasting in the trash
 
 Is it looking at my shirt
 Is it looking at my god damn shirt]
-</tw-passagedata><tw-passagedata pid="5" name="Metal" tags="" position="1300,750" size="100,100">&lt;h1&gt;🏆 REACH YOUR GRAIL 🔥&lt;/h1&gt;
+</tw-passagedata><tw-passagedata pid="5" name="Metal" tags="" position="1300,750" size="100,100">&lt;h1&gt;REACH YOUR GRAIL&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Reach Your Grail&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🏆&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/04%20[Metal]%20Reach%20Your%20Grail.mp3&quot;&gt;
@@ -249,10 +283,12 @@ src=&quot;https://thesestains.com/theconcert/MP3s/04%20[Metal]%20Reach%20Your%20
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🔥&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/figure&gt;
-\//You pick a metal song with chugging guitars and pounding drums. You (t8n: &quot;rumble&quot;)+(t8n-time:3s)[bang] your head to the beat from the back of the bus. You see yourself charging across the battlefield, ready to cut down any foes in your path. Awake and focused, you step off the bus right at the venue! //
+//You pick a metal song with chugging guitars and pounding drums. You (t8n: &quot;rumble&quot;)+(t8n-time:3s)[bang] your head to the beat from the back of the bus. You see yourself charging across the battlefield, ready to cut down any foes in your path. Awake and focused, you step off the bus right at the venue! //
 
-[[Get in line|Venue, Early]]
+[[⏱ Get in line|Venue, Early]]
 
 &lt;hr/&gt;
 (text-style:&quot;superscript&quot;)[Wading through the putrid pools decay is all around
@@ -270,10 +306,12 @@ Through the fire and the hail
 Can you reach your grail?
 Through the fire and the hail]
 
-</tw-passagedata><tw-passagedata pid="6" name="Folk" tags="" position="1300,350" size="100,100">&lt;h1&gt;🧔 LULLABY, GOODBYE 🐑&lt;/h1&gt;
+</tw-passagedata><tw-passagedata pid="6" name="Folk" tags="" position="1300,350" size="100,100">&lt;h1&gt;LULLABY, GOODBYE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Lullaby, Goodbye&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🧔&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/05%20[Folk]%20Lullaby,%20Goodbye.mp3&quot;&gt;
@@ -281,10 +319,12 @@ src=&quot;https://thesestains.com/theconcert/MP3s/05%20[Folk]%20Lullaby,%20Goodb
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🐑&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/figure&gt;
-\//You pick a soothing indie-folk song to calm your nerves. You can feel yourself transported to a cozy log cabin in the wintery woods, sitting by the fire... and soon enough, you&#39;ve fallen asleep. The bus driver (t8n:&quot;rumble&quot;)+(t8n-time:3s)[shakes you awake]. You&#39;ve missed your stop, and the bus is going out of service. Looks like you&#39;ll have to walk back to the venue.//
+//You pick a soothing indie-folk song to calm your nerves. You can feel yourself transported to a cozy log cabin in the wintery woods, sitting by the fire... and soon enough, you&#39;ve fallen asleep. The bus driver (t8n:&quot;rumble&quot;)+(t8n-time:3s)[shakes you awake]. You&#39;ve missed your stop, and the bus is going out of service. Looks like you&#39;ll have to walk back to the venue.//
 
-[[Start walking|Walking]]
+[[👟 Start walking|Walking]]
 \(set:$HasRaccoonBlessing to false)
 
 &lt;hr/&gt;
@@ -301,10 +341,12 @@ Lullabye, goodbye
 Hey kid, wake up, it&#39;s the end of the line
 You gotta get off the bus]
 
-</tw-passagedata><tw-passagedata pid="7" name="Dumpster" tags="" position="1300,550" size="100,100">&lt;h1&gt;🦝 DESIRE IN YOUR EYES 😍&lt;/h1&gt;
+</tw-passagedata><tw-passagedata pid="7" name="Dumpster" tags="" position="1300,550" size="100,100">&lt;h1&gt;DESIRE IN YOUR EYES&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Desire In Your Eyes&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;emoji&quot;&gt;🗑&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/06%20[Dumpster]%20Desire%20In%20Your%20Eyes.mp3&quot;&gt;
@@ -312,13 +354,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/06%20[Dumpster]%20Desire%20In%
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+      &lt;div class=&quot;emoji&quot;&gt;😍&lt;/div&gt;
+     &lt;div&gt;
 &lt;/figure&gt;
-\//You investigate the creature in the dumpster, and discover it&#39;s a (t8n:&quot;fade-up&quot;)+(t8n-time:3s)[raccoon]! You lock eyes and your heart melts. You&#39;ve always wanted a pet, and it seems like you&#39;ve made an instant connection. Then you remember the candy bar in your pocket... Does it just want a non-rancid treat, or could there be a deeper connection?//
+//You investigate the creature in the dumpster, and discover it&#39;s a (t8n:&quot;fade-up&quot;)+(t8n-time:3s)[raccoon]! You lock eyes and your heart melts. You&#39;ve always wanted a pet, and it seems like you&#39;ve made an instant connection. Then you remember the candy bar in your pocket... Does it just want a non-rancid treat, or could there be a deeper connection?//
 
 What do you do?
-
-[[Pet the raccoon|Pet END]]
-[[Give it the candy bar|Candy]]
+[[🦝 Pet the raccoon|Pet END]]
+[[🍫 Give it the candy bar|Candy]]
 
 &lt;hr/&gt;
 (text-style:&quot;superscript&quot;)[Come in closer, no need to be afraid
@@ -334,10 +377,12 @@ Do you think you can fool me
 Should I risk an embrace, could this love go far 
 Or vanish with no trace, once you get my candy bar
 But I feel the spark, creature of the night
-Now It’s getting dark, will you be my light]</tw-passagedata><tw-passagedata pid="8" name="Walking" tags="" position="1500,350" size="100,100">&lt;h1&gt;👟 FAST ENOUGH 🕺&lt;/h1&gt;
+Now It’s getting dark, will you be my light]</tw-passagedata><tw-passagedata pid="8" name="Walking" tags="" position="1500,350" size="100,100">&lt;h1&gt;FAST ENOUGH&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Fast Enough&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;👟&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/09%20[Walking]%20Fast%20Enough.mp3&quot;&gt;
@@ -345,19 +390,19 @@ src=&quot;https://thesestains.com/theconcert/MP3s/09%20[Walking]%20Fast%20Enough
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🕺&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/figure&gt;
-\//
-(if:$HasCandyBar is true)
+//(if:$HasCandyBar is true)
 [You adopt a (t8n:&quot;fade-right&quot;)+(t8n-time:2s)[power walking stance], taking big strides to a rhythm in your head. As sweat begins to bead on your brow, you check the time. Maybe walking won&#39;t be enough. You remember the candy bar in your pocket, packed with sugar to supercharge your pace. You also consider trying your hand at hitchhiking. At least one of these passing cars has to be going to the concert!]
 \(else:)
-[You adopt a (t8n:&quot;fade-right&quot;)+(t8n-time:2s)[power walking stance], taking big strides to a rhythm in your head. As sweat begins to bead on your brow, you check the time. Maybe walking won&#39;t be enough. You&#39;re in no shape to run, you&#39;re nearly out of breath just from the walk. So you consider trying your hand at hitchhiking instead. At least one of these passing cars has to be going to the concert!]
-//
-What do you do?
+[You adopt a (t8n:&quot;fade-right&quot;)+(t8n-time:2s)[power walking stance], taking big strides to a rhythm in your head. As sweat begins to bead on your brow, you check the time. Maybe walking won&#39;t be enough. You&#39;re in no shape to run, you&#39;re nearly out of breath just from the walk. So you consider trying your hand at hitchhiking instead. At least one of these passing cars has to be going to the concert!]//
 
-(if:$HasCandyBar is true)[[Eat the candy bar|Running END]]
-(if:$HasRaccoonBlessing is true)[[[Try hitchhiking|Hitchhiking]]]
-\(else:)[[[Try hitchhiking|Hitchhiking 2]]]
-[[Keep walking|Venue, Late]]
+What do you do?
+(if:$HasCandyBar is true)[[🏃 Eat the candy bar|Running END]]
+(if:$HasRaccoonBlessing is true)[[[👍 Try hitchhiking|Hitchhiking]]]
+\(else:)[[[👍 Try hitchhiking|Hitchhiking 2]]]
+[[⏱ Keep walking|Venue, Late]]
 
 &lt;hr/&gt;
 (text-style:&quot;superscript&quot;)[Step step stepping on down the street
@@ -385,10 +430,12 @@ Am I going fast enough
 I keep wishing but life keeps dishing
 So I’m missing all the rhythm and rhyme
 I wanna be on time]
-</tw-passagedata><tw-passagedata pid="9" name="Candy" tags="Blessing" position="1500,550" size="100,100">&lt;h1&gt;🍫 SUGAR 🍬&lt;/h1&gt;
+</tw-passagedata><tw-passagedata pid="9" name="Candy" tags="Blessing" position="1500,550" size="100,100">&lt;h1&gt;SUGAR&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Sugar&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🍫&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/08%20[Candy]%20Sugar.mp3&quot;&gt;
@@ -396,10 +443,12 @@ src=&quot;https://thesestains.com/theconcert/MP3s/08%20[Candy]%20Sugar.mp3&quot;
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🍬&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/figure&gt;
-\//You come to your senses, realizing that a wild animal is no pet. You toss the raccoon your candy bar, and it happily scurries off into a bush to consume it. Holding back tears, you resolve to come back for the raccoon another day. Having wasted enough time, you set off on foot; there&#39;s still a chance you&#39;ll get to the concert!//
+//You come to your senses, realizing that a wild animal is no pet. You toss the raccoon your candy bar, and it happily scurries off into a bush to consume it. Holding back tears, you resolve to come back for the raccoon another day. Having wasted enough time, you set off on foot; there&#39;s still a chance you&#39;ll get to the concert!//
 
-[[Continue walking|Walking]]
+[[👟 Continue walking|Walking]]
 \(set:$HasCandyBar to false)
 \(set:$HasRaccoonBlessing to true)
 
@@ -422,10 +471,12 @@ I&#39;ll come back to find you another day with more
 Candy
 Sweet sweet sugar, all you wanted was my
 Candy
-Gave you some sugar, then you were gone]</tw-passagedata><tw-passagedata pid="10" name="Pet END" tags="" position="1500,150" size="100,100">&lt;h1&gt;🗑 IN THE DUMPSTER 💩&lt;/h1&gt;
+Gave you some sugar, then you were gone]</tw-passagedata><tw-passagedata pid="10" name="Pet END" tags="" position="1500,150" size="100,100">&lt;h1&gt;IN THE DUMPSTER&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;In The Dumpster&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🦝&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/07%20[Pet END]%20In%20The%20Dumpster.mp3&quot;&gt;
@@ -433,13 +484,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/07%20[Pet END]%20In%20The%20Du
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;💩&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/figure&gt;
-\//You reach out a hand to pet the raccoon. Immediately it begins hissing and frothing at the mouth. That&#39;s no potential pet, that&#39;s a rabid beast! It begins snapping and scratching at you, so you hide in the only place you can: the dumpster. You shut the lid, surrounded by filth and stink, trapped all night.//
+//You reach out a hand to pet the raccoon. Immediately it begins hissing and frothing at the mouth. That&#39;s no potential pet, that&#39;s a rabid beast! It begins snapping and scratching at you, so you hide in the only place you can: the dumpster. You shut the lid, surrounded by filth and stink, trapped all night.//
 
 You miss the concert. GAME OVER.
-
-[[Start over|Intro]]
-[[Go back one step|Dumpster]]
+[[🔁 Play again|Intro]]
+[[⏪ Go back one step|Dumpster]]
 
 You have visited (print: length of (unique: ...(history: where &quot;Preparation&quot; or &quot;Band&quot; is not in its name))) out of 30 passages.
 
@@ -464,10 +516,12 @@ Game over, game over
 In the dumpster all along]
 
 
-</tw-passagedata><tw-passagedata pid="11" name="Venue, Early" tags="" position="1500,750" size="100,100">&lt;h1&gt;⏱ EARLY 🎟&lt;/h1&gt;
+</tw-passagedata><tw-passagedata pid="11" name="Venue, Early" tags="" position="1500,750" size="100,100">&lt;h1&gt;I&#39;M EARLY&lt;/h1&gt;
 \
 \&lt;figure&gt;
-    &lt;figcaption&gt;Listen to &quot;Early&quot;:&lt;/figcaption&gt;
+    &lt;figcaption&gt;Listen to &quot;I&#39;m Early&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;⏱&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/10%20[Venue,%20Early]%20Early.mp3&quot;&gt;
@@ -475,13 +529,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/10%20[Venue,%20Early]%20Early.
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🎟&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/figure&gt;
-\//Having achieved your goal, you proudly take up your place in line. You check the time, and it turns out you&#39;re quite early! As the minutes pass, your excitement quickly fades into boredom. Your stomach lets out a (t8n:&quot;shudder&quot;)+(t8n-time:2s)[loud growl], so loud the man behind you in line hears it. He commiserates, offering to buy food for the both of you if you go pick it up. He promises to hold your spot in line. //
+//Having achieved your goal, you proudly take up your place in line. You check the time, and it turns out you&#39;re quite early! As the minutes pass, your excitement quickly fades into boredom. Your stomach lets out a (t8n:&quot;shudder&quot;)+(t8n-time:2s)[loud growl], so loud the man behind you in line hears it. He commiserates, offering to buy food for the both of you if you go pick it up. He promises to hold your spot in line. //
 
 What do you do?
-
-[[Go pick up the food|Errand]]
-[[Stay in line|Fight]]
+[[🍟 Go pick up the food|Errand]]
+[[⏱ Stay in line|Fight]]
 
 &lt;hr/&gt;
 (text-style:&quot;superscript&quot;)[Step off the bus as light as the evening breeze
@@ -498,10 +553,12 @@ The man next to me hears, says “I’m hungry too
 I’ll hold your spot in line if you go pick us up some food”
  
 I’m hungry, so hungry
-He’s buying, should I go]</tw-passagedata><tw-passagedata pid="12" name="Hitchhiking" tags="" position="1700,550" size="100,100">&lt;h1&gt;⚡ SPARK OF HOPE 🐴&lt;/h1&gt;
+He’s buying, should I go]</tw-passagedata><tw-passagedata pid="12" name="Hitchhiking" tags="" position="1700,550" size="100,100">&lt;h1&gt;SPARK OF HOPE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Spark Of Hope&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;👍&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/13%20[Hitchhiking]%20Spark%20Of%20Hope%20(Teens).mp3&quot;&gt;
@@ -509,13 +566,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/13%20[Hitchhiking]%20Spark%20O
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;⚡️&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/figure&gt;
-\//You don&#39;t really know how to hitchhike, but you&#39;ve seen it done in movies. You walk backwards and hold out your thumb, waiting for a car to pull over. A long time goes by, but finally a car stops for you. It&#39;s an old sedan packed with teenagers older than yourself. You&#39;re intimidated by their appearance, but they say they&#39;re going to the concert, too. They offer you a ride.//
+//You don&#39;t really know how to hitchhike, but you&#39;ve seen it done in movies. You walk backwards and hold out your thumb, waiting for a car to pull over. A long time goes by, but finally a car stops for you. It&#39;s an old sedan packed with teenagers older than yourself. You&#39;re intimidated by their appearance, but they say they&#39;re going to the concert, too. They offer you a ride.//
 
 What do you do?
-
-[[Get in the car|Teens]]
-[[Continue walking|Venue, Late]]
+[[🚘 Get in the car|Teens]]
+[[⏱ Continue walking|Venue, Late]]
 
 &lt;hr/&gt;
 (text-style:&quot;superscript&quot;)[Walking down that lonesome road
@@ -532,10 +590,12 @@ Spark of hope
 Spark of hope
 Spark of hope
 
-A beat-up sedan with peeling gray paint skids to a stop beside me. The windows down, I see four teenagers with colored hair, beanie hats, and trendy vintage clothes. A stale, skunky aroma with hints of nacho chip dust wafts on the evening breeze. They stare at me for a second with a mix of pity and curiosity, before the skinny guy in the driver&#39;s seat asks, &quot;need a lift?&quot; &quot;I&#39;m going to the concert,&quot; I say, and the girl in the back stoically responds, &quot;dope, hop in.&quot; Is this a happy coincidence, or another distraction on my quest?]</tw-passagedata><tw-passagedata pid="13" name="Running END" tags="" position="1700,150" size="100,100">&lt;h1&gt;🏃 FASTER! FASTER! 🤢&lt;/h1&gt;
+A beat-up sedan with peeling gray paint skids to a stop beside me. The windows down, I see four teenagers with colored hair, beanie hats, and trendy vintage clothes. A stale, skunky aroma with hints of nacho chip dust wafts on the evening breeze. They stare at me for a second with a mix of pity and curiosity, before the skinny guy in the driver&#39;s seat asks, &quot;need a lift?&quot; &quot;I&#39;m going to the concert,&quot; I say, and the girl in the back stoically responds, &quot;dope, hop in.&quot; Is this a happy coincidence, or another distraction on my quest?]</tw-passagedata><tw-passagedata pid="13" name="Running END" tags="" position="1700,150" size="100,100">&lt;h1&gt;FASTER! FASTER!&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Faster! Faster!&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🏃&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/11%20[Running END]%20Faster!%20Faster!.mp3&quot;&gt;
@@ -543,13 +603,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/11%20[Running END]%20Faster!%2
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🤢&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/figure&gt;
-\//You bite into the candy bar, and the second the sugar hits your bloodstream, you&#39;re ready to run! You take off as fast as your feet can take you. However, you don&#39;t get very far before you start to feel dizzy and nauseous. Maybe candy isn&#39;t great running fuel... You collapse on the ground, about to be sick, crying for your mother.//
+//You bite into the candy bar, and the second the sugar hits your bloodstream, you&#39;re ready to run! You take off as fast as your feet can take you. However, you don&#39;t get very far before you start to feel dizzy and nauseous. Maybe candy isn&#39;t great running fuel... You collapse on the ground, about to be sick, crying for your mother.//
 
 You miss the concert. GAME OVER.
-
-[[Start over|Intro]]
-[[Go back one step|Walking]]
+[[🔁 Play again|Intro]]
+[[⏪ Go back one step|Walking]]
 
 You have visited (print: length of (unique: ...(history: where &quot;Preparation&quot; or &quot;Band&quot; is not in its name))) out of 30 passages.
 
@@ -583,10 +644,12 @@ Faster faster, ‘til I’m gonna blow
 Oh no, I think I’m gonna blow
 Game over man, game over
 Here it comes, blep
-Mommy…]</tw-passagedata><tw-passagedata pid="14" name="Teens" tags="" position="1900,550" size="100,100">&lt;h1&gt;🚗 RUSTY VOLVO 😎&lt;/h1&gt;
+Mommy…]</tw-passagedata><tw-passagedata pid="14" name="Teens" tags="" position="1900,550" size="100,100">&lt;h1&gt;RUSTY VOLVO&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Rusty Volvo&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🚘&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/18%20[Teens]%20Rusty%20Volvo.mp3&quot;&gt;
@@ -594,16 +657,17 @@ src=&quot;https://thesestains.com/theconcert/MP3s/18%20[Teens]%20Rusty%20Volvo.m
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;😎&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/figure&gt;
-\//You get in the car with the edgy teens, and they immediately begin telling you their whole deal. School sucks, parents suck, everything sucks except one thing: their favorite band, (t8n:&quot;pulse&quot;)+(t8n-time:3s)[These Stains Are Who I Am]. They ask if you&#39;ve heard of them. Now&#39;s your chance to show how cool you are!//
+//You get in the car with the edgy teens, and they immediately begin telling you their whole deal. School sucks, parents suck, everything sucks except one thing: their favorite band, (t8n:&quot;pulse&quot;)+(t8n-time:3s)[These Stains Are Who I Am]. They ask if you&#39;ve heard of them. Now&#39;s your chance to show how cool you are!//
 
 What do you do?
-
-[[Tell them about your mom&#39;s new boyfriend|Mom]]
+[[👨‍💼 Tell them about your mom&#39;s new boyfriend|Mom]]
 \(if:$HasRaccoonBlessing is true)[
-[[Tell them about your raccoon encounter|Bonding]]]
+[[🦝 Tell them about your raccoon encounter|Bonding]]]
 \(else:)[
-[[Tell them you love Firesword 2 |Bonding]]]
+[[🔥 ⚔️ 2️⃣ Tell them you love Firesword 2 |Bonding]]]
 
 &lt;hr/&gt;
 (text-style:&quot;superscript&quot;)[We hate our parents, driving us insane
@@ -624,10 +688,12 @@ Prove that you’re cool, more real than the rest
 We ain’t got shit, we got no dough
 So we just drive around in this rusty Volvo
 We don’t have jobs, we won’t go home
-So we just drive around in this rusty Volvo]</tw-passagedata><tw-passagedata pid="15" name="Family END" tags="" position="1900,150" size="100,100">&lt;h1&gt;🔢 THE COUNTING SONG 👶&lt;/h1&gt;
+So we just drive around in this rusty Volvo]</tw-passagedata><tw-passagedata pid="15" name="Family END" tags="" position="1900,150" size="100,100">&lt;h1&gt;THE COUNTING SONG&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;The Counting Song&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;👶&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/16%20[Family%20END]%20The%20Counting%20Song.mp3&quot;&gt;
@@ -635,13 +701,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/16%20[Family%20END]%20The%20Co
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🔢&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
-\//The family was certainly going to a concert, just not the right one... You end up at the local library&#39;s children&#39;s night. Snotty kids and screaming babies surround you. A performer begins to sing a vapid yet menacing song, ostensibly trying to teach the kids their numbers. You&#39;re stranded there, confused and annoyed, but at least you got a refresher on how to count to nine.//
+//The family was certainly going to a concert, just not the right one... You end up at the local library&#39;s children&#39;s night. Snotty kids and screaming babies surround you. A performer begins to sing a vapid yet menacing song, ostensibly trying to teach the kids their numbers. You&#39;re stranded there, confused and annoyed, but at least you got a refresher on how to count to nine.//
 
 You miss the concert. GAME OVER.
-
-[[Start over|Intro]]
-[[Go back one step|Hitchhiking 2]]
+[[🔁 Play again|Intro]]
+[[⏪ Go back one step|Hitchhiking 2]]
 
 You have visited (print: length of (unique: ...(history: where &quot;Preparation&quot; or &quot;Band&quot; is not in its name))) out of 30 passages.
 
@@ -669,10 +736,12 @@ Everybody!
 One, two, three fluffy clouds in the sky
 Four, five, six pretty birds flying high
 One, two, three are the chances you get
-Four, five, six, all good fortune is spent]</tw-passagedata><tw-passagedata pid="16" name="Bonding" tags="" position="2100,550" size="100,100">&lt;h1&gt;😄 THIS COULD BE 🌿&lt;/h1&gt;
+Four, five, six, all good fortune is spent]</tw-passagedata><tw-passagedata pid="16" name="Bonding" tags="" position="2100,550" size="100,100">&lt;h1&gt;THIS COULD BE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;This Could Be&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;😊&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/22%20[Bonding]%20This%20Could%20Be.mp3&quot;&gt;
@@ -680,17 +749,17 @@ src=&quot;https://thesestains.com/theconcert/MP3s/22%20[Bonding]%20This%20Could%
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🤝&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
-\//
-\(if:$HasRaccoonBlessing is true)
+//(if:$HasRaccoonBlessing is true)
 [You tell the teens about how you almost got a raccoon for a pet, just like in the These Stains song &quot;My Dog Ran Away (And I Am, Too).&quot; They&#39;re amazed by your bravery, and they start telling you all kinds of crazy stories. It looks like you&#39;re becoming great friends! But then one of the teens pulls out a joint and offers you a hit. You&#39;re scared because you&#39;ve never done drugs before, but you want to seem cool.]
 \(else:)
 [You start listing off all your favorite These Stains songs, starting with &quot;The Raccoon King&quot; from Firesword 2. You get to discussing the lore of Firesword, and the time starts to fly by. It looks like you&#39;re becoming great friends! But then one of the teens pulls out a joint and offers you a hit. You&#39;re scared because you&#39;ve never done drugs before, but you want to seem cool.]
 //
 What do you do?
-
-[[Do drugs|Drugs]]
-[[Say no to drugs|DARE END]]
+[[🌿 Do drugs|Drugs]]
+[[🚭 Say no to drugs|DARE END]]
 
 &lt;hr/&gt;
 (text-style:&quot;superscript&quot;)[When I first got in the car, y’know I was so scared
@@ -708,10 +777,12 @@ My bright and shiny future is quickly growing dark
 
 Or maybe this could be
 The first time I try weed
-]</tw-passagedata><tw-passagedata pid="17" name="Mom" tags="" position="2100,350" size="100,100">&lt;h1&gt;🤠 MY NEW DAD 👨‍💼&lt;/h1&gt;
+]</tw-passagedata><tw-passagedata pid="17" name="Mom" tags="" position="2100,350" size="100,100">&lt;h1&gt;MY NEW DAD&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;My New Dad&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;👨‍💼&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/26%20[Mom]%20My%20New%20Dad.mp3&quot;&gt;
@@ -719,10 +790,12 @@ src=&quot;https://thesestains.com/theconcert/MP3s/26%20[Mom]%20My%20New%20Dad.mp
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🤠&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
 \//You decide to tell the teens about your mom&#39;s new boyfriend. You think it sounds like the plot of &quot;My Wife&#39;s Boyfriend&quot; by These Stains, but it just comes off as sad. It bums out everyone in the car, silencing the lively conversation. They don&#39;t kick you out of the car, but you spend the rest of the ride staring out the window. After the most awkward silence of your life, you make it to the concert.//
 
-[[Enter the venue|Venue, On Time]]
+[[🤘 Enter the venue|Venue, On Time]]
 
 &lt;hr/&gt;
 (text-style:&quot;superscript&quot;)[Well my mom’s got herself a new man and he really sucks
@@ -743,10 +816,12 @@ Guess I came on way too hard, should’ve used a softer touch
 The girl in the backseat sighs and says her folks’ divorce was rough
 The driver cranks up the radio, I guess he’s had enough
 
-I’m a little sad, but I just want to connect with my new dad]</tw-passagedata><tw-passagedata pid="18" name="Venue, On Time" tags="" position="2500,550" size="100,100">&lt;h1&gt;🧑‍🎤 THESE STAINS ARE WHO WE ARE 🎉&lt;/h1&gt;
+I’m a little sad, but I just want to connect with my new dad]</tw-passagedata><tw-passagedata pid="18" name="Venue, On Time" tags="" position="2500,550" size="100,100">&lt;h1&gt;THESE STAINS ARE WHO WE ARE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;These Stains Are Who We Are&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🤘&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/29%20[Venue,%20On%20Time]%20These%20Stains%20Are%20Who%20We%20Are.mp3&quot;&gt;
@@ -754,12 +829,13 @@ src=&quot;https://thesestains.com/theconcert/MP3s/29%20[Venue,%20On%20Time]%20Th
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🎉&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
-\//You can hardly believe it, but you made it to the show on time! You enter the venue, find the perfect spot, and start to cheer. Soon enough, the band comes out and starts to play an incredible set with all your favorite songs. As the night goes on you feel that you, the band, and the crowd are all one: These Stains are who you are.//
+//You can hardly believe it, but you made it to the show on time! You enter the venue, find the perfect spot, and start to cheer. Soon enough, the band comes out and starts to play an incredible set with all your favorite songs. As the night goes on you feel that you, the band, and the crowd are all one: These Stains are who you are.//
 
 You made it to the concert! YOU WIN!
-
-[[Play again|Intro]]
+[[🔁 Play again|Intro]]
 \(if: (visited:&quot;Running END&quot;) 
 	and(visited:&quot;Family END&quot;)
     and(visited:&quot;Pet END&quot;)
@@ -769,8 +845,9 @@ You made it to the concert! YOU WIN!
     and(visited:&quot;Club END&quot;)
     and(visited:&quot;Drugs&quot;)
     and(visited:&quot;Jail END&quot;))[
-[[BONUS: Listen to the encore!|Band]]
-](else:)[
+[[🎁 BONUS: Listen to the encore!|Band]]
+]
+(else:)[
 You have visited (print: length of (unique: ...(history: where &quot;Preparation&quot; or &quot;Band&quot; is not in its name))) out of 30 passages. You still have paths to take before unlocking the secret bonus song!]
 
 &lt;hr/&gt;
@@ -791,10 +868,12 @@ These stains remind us tomorrow’s a new day
 
 These stains are who I am
 These stains are who we are
-These stains are here and will never go away]</tw-passagedata><tw-passagedata pid="19" name="Band" tags="" position="2700,600" size="200,200">&lt;h1&gt;⭐ B-B-B-BONUS SONG! 🎮&lt;/h1&gt;
+These stains are here and will never go away]</tw-passagedata><tw-passagedata pid="19" name="Band" tags="" position="2700,600" size="200,200">&lt;h1&gt;ENCORE! ENCORE!&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;These Stains Are Who I Am&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🎁&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/30%20[Band]%20These%20Stains%20Are%20Who%20I%20Am.mp3&quot;&gt;
@@ -802,20 +881,24 @@ src=&quot;https://thesestains.com/theconcert/MP3s/30%20[Band]%20These%20Stains%2
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🎊&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
 //Tonight was the night of your dreams. You made some new friends, saw a raccoon, ate a greasy burger, and most importantly got to rock out to These Stains Are Who I Am. Just when you think the night is coming to an end, the band comes back on stage for a surprise double encore! They begin playing a deep cut that resonates very closely with you, and it sounds so much better than you remember it.//
 
 //When the song ends, the band tosses a few VIP passes out into the crowd and says to meet them backstage. One is heading right towards you, and the lanyard opens up to fall gently around your head. Looks like you&#39;ll even be getting your t-shirt signed! Truly this is the greatest night of your life.//
 
-Thanks for playing/listening to &quot;The Concert!&quot; You&#39;re the real VIP for making it here, so here&#39;s a little something for you: use promo code THECONCERTVIP to get 50% off of &quot;The Concert&quot; or any of our other music on &lt;a href=&quot;https://thesestainsarewhoiam.bandcamp.com/&quot; target=&quot;_blank&quot; style=&quot;color: white;&quot;&gt;Bandcamp&lt;/a&gt;. Be sure to follow us so you won&#39;t miss the next crazy thing we do.
+Thanks for playing/listening to &quot;The Concert!&quot; You&#39;re the real VIP for making it here, so here&#39;s a little something for you: use promo code &#39;&#39;THECONCERTVIP&#39;&#39; to get 50% off of &quot;The Concert&quot; or any of our other music on &lt;a href=&quot;https://thesestainsarewhoiam.bandcamp.com/&quot; target=&quot;_blank&quot; style=&quot;color: white;&quot;&gt;Bandcamp&lt;/a&gt;. Be sure to follow us so you won&#39;t miss the next crazy thing we do.
 
 ❤️, 
 Andrew and Ben
 
-</tw-passagedata><tw-passagedata pid="20" name="Drugs" tags="Blessing" position="2300,550" size="100,100">&lt;h1&gt;🕊 THE BURDEN OF INNOCENCE 😇&lt;/h1&gt;
+</tw-passagedata><tw-passagedata pid="20" name="Drugs" tags="Blessing" position="2300,550" size="100,100">&lt;h1&gt;THE BURDEN OF INNOCENCE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;The Burden Of Innocence&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🌿&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/27%20%5bDrugs%5d%20The%20Burden%20of%20Innocence.mp3&quot;&gt;
@@ -823,10 +906,12 @@ src=&quot;https://thesestains.com/theconcert/MP3s/27%20%5bDrugs%5d%20The%20Burde
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;😇&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
-\//You take a big hit off the joint, hold in the smoke, and (t8n:&quot;fade-right&quot;)+(t8n-time:2s)[exhale]. You&#39;re nervous, worried you might lose your mind. But slowly a sense of calm washes over you: you think you&#39;re high! You see how, when used responsibly and in moderation, marijuana can be a safe and positive experience. You crack jokes and giggle with the teens all the way to the venue. You arrive just as the doors open, still pleasantly buzzed and ready to enjoy the show.//
+//You take a big hit off the joint, hold in the smoke, and (t8n:&quot;fade-right&quot;)+(t8n-time:2s)[exhale]. You&#39;re nervous, worried you might lose your mind. But slowly a sense of calm washes over you: you think you&#39;re high! You see how, when used responsibly and in moderation, marijuana can be a safe and positive experience. You crack jokes and giggle with the teens all the way to the venue. You arrive just as the doors open, still pleasantly buzzed and ready to enjoy the show.//
 
-[[Enter the venue|Venue, On Time]]
+[[🤘 Enter the venue|Venue, On Time]]
 \(set:$HasDrugsBlessing to true)
 
 &lt;hr/&gt;
@@ -845,10 +930,12 @@ My mind was caged, shattered the bars
 Canary flew the coal mine
 
 Shouldered the weight, now I stand tall
-Free from the burden of innocence]</tw-passagedata><tw-passagedata pid="21" name="DARE END" tags="" position="2300,150" size="100,100">&lt;h1&gt;🚭 STAYIN&#39; CLEAN 🇺🇸&lt;/h1&gt;
+Free from the burden of innocence]</tw-passagedata><tw-passagedata pid="21" name="DARE END" tags="" position="2300,150" size="100,100">&lt;h1&gt;STAYIN&#39; CLEAN&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Stayin&#39; Clean&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🚭&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/25%20[DARE%20END]%20Stayin&#39;%20Clean.mp3&quot;&gt;
@@ -856,13 +943,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/25%20[DARE%20END]%20Stayin&#39
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🇺🇸&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
-\//You remember all of the anti-drug propaganda you learned in school. What you thought was knowledge turns out to mostly be ignorance. The teens try to provide some facts and nuance about &quot;Reefer Madness&quot; and the government&#39;s dirty past with drugs. But you&#39;re not gonna let facts get in the way of your feelings! Ultimately the teens decide that you&#39;re not worth the trouble and kick you out of the car, leaving you stranded across town. At least you&#39;re still drug-free.//
+//You remember all of the anti-drug propaganda you learned in school. What you thought was knowledge turns out to mostly be ignorance. The teens try to provide some facts and nuance about &quot;Reefer Madness&quot; and the government&#39;s dirty past with drugs. But you&#39;re not gonna let facts get in the way of your feelings! Ultimately the teens decide that you&#39;re not worth the trouble and kick you out of the car, leaving you stranded across town. At least you&#39;re still drug-free.//
 
 You miss the concert. GAME OVER.
-
-[[Start over|Intro]]
-[[Go back one step|Bonding]]
+[[🔁 Play again|Intro]]
+[[⏪ Go back one step|Bonding]]
 
 You have visited (print: length of (unique: ...(history: where &quot;Preparation&quot; or &quot;Band&quot; is not in its name))) out of 30 passages.
 
@@ -908,10 +996,12 @@ Now I’m gonna have to call the cops
 That’s enough, get out of my car
 I tried being nice but you’re too bizarre
 Game over kid, you’re way across town
-Good luck getting to the concert now]</tw-passagedata><tw-passagedata pid="22" name="Hitchhiking 2" tags="" position="1700,350" size="100,100">&lt;h1&gt;⚡ SPARK OF HOPE 🐴&lt;/h1&gt;
+Good luck getting to the concert now]</tw-passagedata><tw-passagedata pid="22" name="Hitchhiking 2" tags="" position="1700,350" size="100,100">&lt;h1&gt;SPARK OF HOPE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Spark Of Hope&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;👍&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/12%20[Hitchhiking]%20Spark%20Of%20Hope%20(Family).mp3&quot;&gt;
@@ -919,13 +1009,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/12%20[Hitchhiking]%20Spark%20O
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;⚡️&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/figure&gt;
-\//You don&#39;t really know how to hitchhike, but you&#39;ve seen it done in movies. You walk backwards and hold out your thumb, waiting for a car to pull over. A long time goes by, but finally a car stops for you. It&#39;s a minivan with parents and some little kids inside, but they say they&#39;re going to the concert, too. They offer you a ride.//
+//You don&#39;t really know how to hitchhike, but you&#39;ve seen it done in movies. You walk backwards and hold out your thumb, waiting for a car to pull over. A long time goes by, but finally a car stops for you. It&#39;s a minivan with parents and some little kids inside, but they say they&#39;re going to the concert, too. They offer you a ride.//
 
 What do you do?
-
-[[Get in the car|Family END]]
-[[Continue walking|Venue, Late]]
+[[👶 Get in the car|Family END]]
+[[⏱ Continue walking|Venue, Late]]
 
 &lt;hr/&gt;
 (text-style:&quot;superscript&quot;)[Walking down that lonesome road
@@ -942,10 +1033,12 @@ Spark of hope
 Spark of hope
 Spark of hope
 
-An ancient beige minivan is idling before me. On the passenger side, a man with a mop of graying hair rolls down the hand-crank window in a jerky, uneven motion. Out of breath from the mild exertion, he pants, &quot;need a lift?&quot; His wife smiles at me from the driver&#39;s seat, and I hear children shouting from the back  over a cassette of sing-along songs. &quot;I&#39;m going to the concert,&quot; I say, and the man cheerfully replies, &quot;That&#39;s where we&#39;re going! Hop in!&quot; Is this a happy coincidence, or another distraction on my quest?]</tw-passagedata><tw-passagedata pid="23" name="Venue, Late" tags="" position="2500,350" size="100,100">&lt;h1&gt;⏱ LATE 🎟&lt;/h1&gt;
+An ancient beige minivan is idling before me. On the passenger side, a man with a mop of graying hair rolls down the hand-crank window in a jerky, uneven motion. Out of breath from the mild exertion, he pants, &quot;need a lift?&quot; His wife smiles at me from the driver&#39;s seat, and I hear children shouting from the back  over a cassette of sing-along songs. &quot;I&#39;m going to the concert,&quot; I say, and the man cheerfully replies, &quot;That&#39;s where we&#39;re going! Hop in!&quot; Is this a happy coincidence, or another distraction on my quest?]</tw-passagedata><tw-passagedata pid="23" name="Venue, Late" tags="" position="2500,350" size="100,100">&lt;h1&gt;I&#39;M LATE&lt;/h1&gt;
 \
 \&lt;figure&gt;
-    &lt;figcaption&gt;Listen to &quot;Late&quot;:&lt;/figcaption&gt;
+    &lt;figcaption&gt;Listen to &quot;I&#39;m Late&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;⏱&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/17%20[Venue,%20Late]%20I&#39;m%20Late.mp3&quot;&gt;
@@ -953,12 +1046,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/17%20[Venue,%20Late]%20I&#39;m
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🎟&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
-\//You&#39;re tired and sweaty, but you did it. You walked all the way across town and made it to the concert! You&#39;re quite late, and just as you arrive you hear the crowd start to cheer. Hopefully you haven&#39;t missed These Stains&#39; whole set! You rush inside to catch the rest of the show.//
+//You&#39;re tired and sweaty, but you did it. You walked all the way across town and made it to the concert! You&#39;re quite late, and just as you arrive you hear the crowd start to cheer. Hopefully you haven&#39;t missed These Stains&#39; whole set! You rush inside to catch the rest of the show.//
 
 You made it to the concert! YOU WIN!
 
-[[Play again|Intro]]
+[[🔁 Play again|Intro]]
 \(if: (visited:&quot;Running END&quot;) 
 	and(visited:&quot;Family END&quot;)
     and(visited:&quot;Pet END&quot;)
@@ -968,8 +1063,9 @@ You made it to the concert! YOU WIN!
     and(visited:&quot;Club END&quot;)
     and(visited:&quot;Drugs&quot;)
     and(visited:&quot;Jail END&quot;))[
-[[BONUS: Listen to the encore!|Band]]
-](else:)[
+[[🎁 BONUS: Listen to the encore!|Band]]
+]
+(else:)[
 You have visited (print: length of (unique: ...(history: where &quot;Preparation&quot; or &quot;Band&quot; is not in its name))) out of 30 passages. You still have paths to take before unlocking the secret bonus song!]
 
 &lt;hr/&gt;
@@ -979,10 +1075,12 @@ I didn’t get sick, thrown in jail, or attacked
 I can hear the crowd go wild, I hope that I just missed the opening act
 
 I’m late, but not too late
-I’m late, time for the show]</tw-passagedata><tw-passagedata pid="24" name="Errand" tags="" position="1700,750" size="100,100">&lt;h1&gt;🍟 HOT MEAT 👠&lt;/h1&gt;
+I’m late, time for the show]</tw-passagedata><tw-passagedata pid="24" name="Errand" tags="" position="1700,750" size="100,100">&lt;h1&gt;HOT MEAT&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Hot Meat&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🍟&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/14%20[Errand]%20Hot%20Meat.mp3&quot;&gt;
@@ -990,21 +1088,24 @@ src=&quot;https://thesestains.com/theconcert/MP3s/14%20[Errand]%20Hot%20Meat.mp3
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🌧&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
-\//Having agreed to pick up some food, you venture out to find the restaurant. You haven&#39;t been there before, so you imagine yourself as noir detective, stalking for clues in the rain. When you get to your destination, you happen to see two storefronts with the same name: &quot;Hot Meat.&quot; One store has a sign shaped like a burger and fries. The other has a sign shaped like legs in high heels. You&#39;re honestly not sure which one is the right one.//
+//Having agreed to pick up some food, you venture out to find the restaurant. You haven&#39;t been there before, so you imagine yourself as noir detective, stalking for clues in the rain. When you get to your destination, you happen to see two storefronts with the same name: &quot;Hot Meat.&quot; One store has a sign shaped like a burger and fries. The other has a sign shaped like legs in high heels. You&#39;re honestly not sure which one is the right one.//
 
 What do you do?
-
-[[Enter the building with the burger-shaped sign|Waiting]]
-[[Enter the building with the leg-shaped sign|Club END]]
+[[🍔 Enter the building with the burger-shaped sign|Waiting]]
+[[👠 Enter the building with the leg-shaped sign|Club END]]
 
 &lt;hr/&gt;
 (text-style:&quot;superscript&quot;)[Rain rattles down the gutters and drips off my fedora. I see silhouettes of happy people chowing down on dinner in every apartment window. But here I am, on the street, stomach empty as a bum’s bottle of rye. I can feel eyes on me as I walk, burning a hole in the back of my head. I turn and see her, a most beautiful creature. But I can’t be distracted by dames right now. “Beat it, toots,” I say, and the huge rat scurries off into a storm drain. 
 
-I turn down a side street towards my destination, out of the cold comfort of the street lights. My phone chimes, “You have arrived”, but I’m flummoxed as a polar bear in Hawai’i. I see two storefronts with two nearly identical neon signs, both spelling out the words: “Hot Meat.” One is adorned with illustrations of a juicy burger, steamy fries, and a cold milkshake. The other depicts a slender pair of legs with stilettos and fishnet stockings. I’m a tough man to fool, and yet, I’m suddenly unsure of my next move…]</tw-passagedata><tw-passagedata pid="25" name="Waiting" tags="" position="1900,750" size="100,100">&lt;h1&gt;🍔 GREASY LOVE ❤️&lt;/h1&gt;
+I turn down a side street towards my destination, out of the cold comfort of the street lights. My phone chimes, “You have arrived”, but I’m flummoxed as a polar bear in Hawai’i. I see two storefronts with two nearly identical neon signs, both spelling out the words: “Hot Meat.” One is adorned with illustrations of a juicy burger, steamy fries, and a cold milkshake. The other depicts a slender pair of legs with stilettos and fishnet stockings. I’m a tough man to fool, and yet, I’m suddenly unsure of my next move…]</tw-passagedata><tw-passagedata pid="25" name="Waiting" tags="" position="1900,750" size="100,100">&lt;h1&gt;GREASY LOVE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Greasy Love&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🍔&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/15%20[Waiting]%20Greasy%20Love.mp3&quot;&gt;
@@ -1012,13 +1113,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/15%20[Waiting]%20Greasy%20Love
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;💘&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
-\//You find yourself in a typical burger joint. The aroma of salt and grease renews your hunger. Your order isn&#39;t ready yet, so once again you have to wait. You try and will your food to be ready faster, staring down the cooks and cashiers. You&#39;re hungry, you&#39;re worried about missing the concert, and you don&#39;t want to disappoint a new potential friend. You notice the takeout counter is loaded with (t8n:&quot;fade-down&quot;)+(t8n-time:3s)[grease-soaked bags]. Would anyone notice if you took someone else&#39;s order?//
+//You find yourself in a typical burger joint. The aroma of salt and grease renews your hunger. Your order isn&#39;t ready yet, so once again you have to wait. You try and will your food to be ready faster, staring down the cooks and cashiers. You&#39;re hungry, you&#39;re worried about missing the concert, and you don&#39;t want to disappoint a new potential friend. You notice the takeout counter is loaded with (t8n:&quot;fade-down&quot;)+(t8n-time:3s)[grease-soaked bags]. Would anyone notice if you took someone else&#39;s order?//
 
 What do you do?
-
-[[Take a bag from the takeout counter|Jail END]]
-[[Wait for your own order|Food]]
+[[🛍 Take a bag from the counter|Jail END]]
+[[⏱ Wait for your own order|Food]]
 
 &lt;hr/&gt;
 (text-style:&quot;superscript&quot;)[Surrounded by people I feel so alone
@@ -1042,10 +1144,12 @@ Oh serve me up some greasy love
 You know that I want it you know that I need it
 
 Love!
-Greasy love!]</tw-passagedata><tw-passagedata pid="26" name="Jail END" tags="" position="2300,1150" size="100,100">&lt;h1&gt;👮 BURGER JAIL ⛏&lt;/h1&gt;
+Greasy love!]</tw-passagedata><tw-passagedata pid="26" name="Jail END" tags="" position="2300,1150" size="100,100">&lt;h1&gt;BURGER JAIL&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Burger Jail&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🛍&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/28%20[Jail%20END]%20Burger%20Jail.mp3&quot;&gt;
@@ -1053,13 +1157,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/28%20[Jail%20END]%20Burger%20J
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;👮&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
-\//You can&#39;t wait any longer. You see a fully-stuffed takeout bag sitting on the counter, so you grab it and run. Turns out the manager was right behind you, and she catches up with you in no time. She calls the police, who take you into a holding cell while your mother comes to pick you up. You nap on the bench, dreaming in fitful sleep of a life spent behind bars. Lucky for you they let you off with only a warning.//
+//You can&#39;t wait any longer. You see a fully-stuffed takeout bag sitting on the counter, so you grab it and run. Turns out the manager was right behind you, and she catches up with you in no time. She calls the police, who take you into a holding cell while your mother comes to pick you up. You nap on the bench, dreaming in fitful sleep of a life spent behind bars. Lucky for you they let you off with only a warning.//
 
 You miss the concert. GAME OVER.
-
-[[Start over|Intro]]
-[[Go back one step|Waiting]]
+[[🔁 Play again|Intro]]
+[[⏪ Go back one step|Waiting]]
 
 You have visited (print: length of (unique: ...(history: where &quot;Preparation&quot; or &quot;Band&quot; is not in its name))) out of 30 passages.
 
@@ -1077,10 +1182,12 @@ My mom always said I looked good in stripes
 Now I’m serving hard time, yeah it’s twenty to life
 The warden just laughs, saying “game over, son”
 But my life in burger jail has just begun
-]</tw-passagedata><tw-passagedata pid="27" name="Fight" tags="" position="1700,950" size="100,100">&lt;h1&gt;🤜 FISTS BEGIN TO FLY 🤛&lt;/h1&gt;
+]</tw-passagedata><tw-passagedata pid="27" name="Fight" tags="" position="1700,950" size="100,100">&lt;h1&gt;FISTS BEGIN TO FLY&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Fists Begin To Fly&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;👊&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/19%20[Fight]%20Fists%20Begin%20To%20Fly.mp3&quot;&gt;
@@ -1088,13 +1195,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/19%20[Fight]%20Fists%20Begin%2
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🔥&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
-\//You choose to go hungry rather than potentially give up your spot in line or miss any of the show. The line grows longer as you wait, and you nearly fall asleep standing up. Eventually someone tries to (t8n:&quot;fade-left&quot;)+(t8n-time:2s)[cut the line], sparking outrage from those who waited patiently. It looks like a fight is about to break out. Finally, some excitement! But a voice in the back of your head asks if you should do something about it.//
+//You choose to go hungry rather than potentially give up your spot in line or miss any of the show. The line grows longer as you wait, and you nearly fall asleep standing up. Eventually someone tries to (t8n:&quot;fade-left&quot;)+(t8n-time:2s)[cut the line], sparking outrage from those who waited patiently. It looks like a fight is about to break out. Finally, some excitement! But a voice in the back of your head asks if you should do something about it.//
 
 What do you do?
-
-[[Break up the fight|Mediator]]
-[[Film the fight for social media|Punched END]]
+[[🌈 Break up the fight|Mediator]]
+[[📱 Film the fight for social media|Punched END]]
 
 &lt;hr/&gt;
 (text-style:&quot;superscript&quot;)[The sun is down, but the tensions rise
@@ -1109,10 +1217,12 @@ Should I break it up, is there something I can say?
 Or just hang back, pull out my phone, maybe record a little bit
 “Think of the likes” “I could go viral” “Just a 60 second clip”
 This is my chance, I cannot delay
-Ah, ah, ah!]</tw-passagedata><tw-passagedata pid="28" name="Punched END" tags="" position="1900,1150" size="100,100">&lt;h1&gt;👊 PUNCHED OUT! 🌊&lt;/h1&gt;
+Ah, ah, ah!]</tw-passagedata><tw-passagedata pid="28" name="Punched END" tags="" position="1900,1150" size="100,100">&lt;h1&gt;PUNCHED OUT!&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Punched Out!&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;📱&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/21%20[Punched%20END]%20Punched%20Out!.mp3&quot;&gt;
@@ -1120,13 +1230,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/21%20[Punched%20END]%20Punched
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🌊&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
-\//You decide to stay out of the fight and mind your business, but the urge to film it for some quick social media likes is too much. You pull out your phone and start to record, but one of the brawlers immediately spots you. His rage redirects towards you, and before you know it, (t8n:&quot;zoom&quot;)+(t8n-time:0.5s)[BAM], you&#39;re knocked down and your nose is bleeding. The venue staff calls an ambulance, and soon you&#39;re being carted off to the hospital.//
+//You decide to stay out of the fight and mind your business, but the urge to film it for some quick social media likes is too much. You pull out your phone and start to record, but one of the brawlers immediately spots you. His rage redirects towards you, and before you know it, (t8n:&quot;zoom&quot;)+(t8n-time:0.5s)[BAM], you&#39;re knocked down and your nose is bleeding. The venue staff calls an ambulance, and soon you&#39;re being carted off to the hospital.//
 
 You miss the concert. GAME OVER.
-
-[[Start over|Intro]]
-[[Go back one step|Fight]]
+[[🔁 Play again|Intro]]
+[[⏪ Go back one step|Fight]]
 
 You have visited (print: length of (unique: ...(history: where &quot;Preparation&quot; or &quot;Band&quot; is not in its name))) out of 30 passages.
 
@@ -1142,10 +1253,12 @@ He was coming to get me and
 Punched out!
 
 Game over, game over
-Game over, game over]</tw-passagedata><tw-passagedata pid="29" name="Mediator" tags="Blessing" position="1900,950" size="100,100">&lt;h1&gt;🎶 THE MUSIC MAKES US ONE 🌈&lt;/h1&gt;
+Game over, game over]</tw-passagedata><tw-passagedata pid="29" name="Mediator" tags="Blessing" position="1900,950" size="100,100">&lt;h1&gt;THE MUSIC MAKES US ONE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;The Music Makes Us One&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🌈&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/20%20[Mediator]%20The%20Music%20Makes%20Us%20One.mp3&quot;&gt;
@@ -1153,10 +1266,12 @@ src=&quot;https://thesestains.com/theconcert/MP3s/20%20[Mediator]%20The%20Music%
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🎶&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
-\//You put yourself between the fighting people. This act of bravery, or stupidity, gives them pause. You plead with them to stop fighting, reminding them that everyone here has something in common: they&#39;re here to enjoy the healing music of These Stains Are Who I Am. Your words cut deep with truth. The fighters apologize and embrace. They&#39;re thanking you for returning them to their senses when the doors to the concert hall open. Everyone walks in calmly and as friends.//
+//You put yourself between the fighting people. This act of bravery, or stupidity, gives them pause. You plead with them to stop fighting, reminding them that everyone here has something in common: they&#39;re here to enjoy the healing music of These Stains Are Who I Am. Your words cut deep with truth. The fighters apologize and embrace. They&#39;re thanking you for returning them to their senses when the doors to the concert hall open. Everyone walks in calmly and as friends.//
 
-[[Enter the venue|Venue, On Time]]
+[[🤘Enter the venue|Venue, On Time]]
 \(set:$HasPeaceBlessing to true)
 
 &lt;hr/&gt;
@@ -1177,10 +1292,12 @@ Surrounded by all my new friends it’s time to get into the groove
 But the music makes us one
 And we have plenty
 So much love under the sun]
-</tw-passagedata><tw-passagedata pid="30" name="Club END" tags="" position="2100,1150" size="100,100">&lt;h1&gt;💃 GROUNDED 🍸&lt;/h1&gt;
+</tw-passagedata><tw-passagedata pid="30" name="Club END" tags="" position="2100,1150" size="100,100">&lt;h1&gt;GROUNDED&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Grounded&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;👠&lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/24%20[Club%20END]%20Grounded.mp3&quot;&gt;
@@ -1188,13 +1305,14 @@ src=&quot;https://thesestains.com/theconcert/MP3s/24%20[Club%20END]%20Grounded.m
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🍸&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
-\//The building you&#39;ve entered doesn&#39;t look like a restaurant. There&#39;s flashing lights, (t8n:&quot;pulse&quot;)+(t8n-time:3s)[blaring electronic music], and a mob of half-naked adults grinding on a dance floor. You seem to have walked into a nightclub by mistake! Before you can slip back out, a bouncer notices you. You&#39;re way too young to be here, so he takes you into a back office and makes you call your mother. She comes to pick you up, scolds you for being so naughty, and grounds you for a month.//
+//The building you&#39;ve entered doesn&#39;t look like a restaurant. There&#39;s flashing lights, (t8n:&quot;pulse&quot;)+(t8n-time:3s)[blaring electronic music], and a mob of half-naked adults grinding on a dance floor. You seem to have walked into a nightclub by mistake! Before you can slip back out, a bouncer notices you. You&#39;re way too young to be here, so he takes you into a back office and makes you call your mother. She comes to pick you up, scolds you for being so naughty, and grounds you for a month.//
 
 You miss the concert. GAME OVER.
-
-[[Start over|Intro]]
-[[Go back one step|Errand]]
+[[🔁 Play again|Intro]]
+[[⏪ Go back one step|Errand]]
 
 You have visited (print: length of (unique: ...(history: where &quot;Preparation&quot; or &quot;Band&quot; is not in its name))) out of 30 passages.
 
@@ -1214,10 +1332,12 @@ I’m grounded
 Bass is pumping, heart is thumping
 (Game over)
 Sweaty naked bodies grinding, humping
-(I’m grounded)]</tw-passagedata><tw-passagedata pid="31" name="Food" tags="Blessing" position="2100,950" size="100,100">&lt;h1&gt;🤤 EAT ME UP 🍽&lt;/h1&gt;
+(I’m grounded)]</tw-passagedata><tw-passagedata pid="31" name="Food" tags="Blessing" position="2100,950" size="100,100">&lt;h1&gt;EAT ME UP&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Eat Me Up&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🤤 &lt;/div&gt;
     &lt;audio
         controls
 src=&quot;https://thesestains.com/theconcert/MP3s/23%20[Food]%20Eat%20Me%20Up.mp3&quot;&gt;
@@ -1225,10 +1345,12 @@ src=&quot;https://thesestains.com/theconcert/MP3s/23%20[Food]%20Eat%20Me%20Up.mp
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🍽&lt;/div&gt;
+    &lt;/div&gt;
 \&lt;/figure&gt;
-\//You patiently waited at the restaurant for your order, then rushed back to the venue. Your new pal lets you right back into line, and you hand him his share of the food. You take your burger out of the bag, grease dripping over your hand. You can almost hear it calling to you, &quot;eat me up.&quot; You happily oblige. With your hunger sated, you and your friend chat about the band for a while. The time flies, and before you know it the doors are open.//
+//You patiently waited at the restaurant for your order, then rushed back to the venue. Your new pal lets you right back into line, and you hand him his share of the food. You take your burger out of the bag, grease dripping over your hand. You can almost hear it calling to you, &quot;eat me up.&quot; You happily oblige. With your hunger sated, you and your friend chat about the band for a while. The time flies, and before you know it the doors are open.//
 
-[[Enter the venue|Venue, On Time]]
+[[🤘 Enter the venue|Venue, On Time]]
 \(set:$HasFoodBlessing to true)
 
 &lt;hr/&gt;
@@ -1274,14 +1396,19 @@ You know you can’t resist]</tw-passagedata><tw-passagedata pid="32" name="Welc
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Welcome to The Concert&quot;:&lt;/figcaption&gt;
+    &lt;div&gt;
+    &lt;div class=&quot;emoji&quot;&gt;👋&lt;/div&gt;
     &lt;audio
         controls        src=&quot;https://thesestains.com/theconcert/MP3s/00%20[Welcome]%20Welcome%20to%20The%20Concert%20(Game).mp3&quot;&gt;
             &lt;a href=&quot;https://thesestains.com/theconcert/MP3s/00%20[Welcome]%20Welcome%20to%20The%20Concert%20(Game).mp3&quot;&gt;
                 Download audio
             &lt;/a&gt;
     &lt;/audio&gt;
+    &lt;div class=&quot;emoji&quot;&gt;🎶&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/figure&gt;
-\Welcome to “The Concert: An Interactive Aural Odyssey” by These Stains Are Who I Am!
+
+Welcome to “The Concert: An Interactive Aural Odyssey” by These Stains Are Who I Am!
 
 &quot;The Concert&quot; is both an album and a game. Each step of the game includes a song, some story text, and a set of options to choose from. Which choice you make will determine which song you hear next and how the game unfolds! There is a way to “win,” but the only way to hear all of the music is to visit every path of the story. If you do, there may be a surprise waiting for you!
 
@@ -1290,12 +1417,10 @@ Let’s try it out:
 //You are about to play/listen to a choose your own adventure-type game/album that will likely blow your mind. You will embody the character of “the kid from the early These Stains songs.&quot; Your goal is to get from your home to the These Stains concert. Seems simple, right? Wrong! You gird your loins, ready for any challenges that may come your way.//
 
 What do you do?
-
-[[Start playing|Intro]]
-[[Take some more time to prepare|Preparation]]
-</tw-passagedata><tw-passagedata pid="33" name="Preparation" tags="" position="750,850" size="100,100">&lt;h1&gt;🐶 Preparation 🐱&lt;/h1&gt;
-
-//You decide to wait a bit longer and get ready for the adventure ahead. No pressure, we want you to have a good time! Here are some pictures of our pets, Dusty and Stan, to calm your nerves. Look at those cute lil’ guys! When you’re ready you can begin the game, or you can go back and read the instructions again.//
+[[🎮 Start playing|Intro]]
+[[⏱ Take some more time to prepare|Preparation]]
+</tw-passagedata><tw-passagedata pid="33" name="Preparation" tags="" position="750,850" size="100,100">&lt;h1&gt;PREPARAION&lt;/h1&gt;
+\//You decide to wait a bit longer and get ready for the adventure ahead. No pressure, we want you to have a good time! Here are some pictures of our pets, Dusty and Stan, to calm your nerves. Look at those cute lil’ guys! When you’re ready you can begin the game, or you can go back and read the instructions again.//
 
 &lt;div class=&quot;image-grid&quot;&gt;
   &lt;div class=&quot;image-grid-row&quot;&gt;
@@ -1308,9 +1433,8 @@ What do you do?
 &lt;/div&gt;
 \
 \What do you do?
-
-[[Start playing|Intro]]
-[[Read the instructions|Welcome]]
+[[🎮 Start playing|Intro]]
+[[📕 Read the instructions again|Welcome]]
 </tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
