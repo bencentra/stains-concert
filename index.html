@@ -9,8 +9,40 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play The Concert: An Interactive Aural Odyssey.</tw-noscript></noscript></tw-story>
-<tw-storydata name="The Concert: An Interactive Aural Odyssey" startnode="32" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="30c5d0b4-dcca-4181-94b2-239f8fb78456" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
-  background-color: #191919;
+<tw-storydata name="The Concert: An Interactive Aural Odyssey" startnode="32" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="30c5d0b4-dcca-4181-94b2-239f8fb78456" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Jersey+15&display=swap');
+
+:root {
+  --gradient-gray: rgba(30,30,30,1);
+  --gradient-light-gray: rgba(60,60,60,1);
+  --gradient-green: rgba(30,90,30,1);
+  --gradient-blue: rgba(30,75,90,1);
+  --gradient-red: rgba(90,30,30,1);
+  --gradient-yellow: rgba(90,90,30,1);
+  --gradient-purple: rgba(60,30,90,1);
+  --gradient-color: var(--gradient-light-gray);
+}
+
+tw-story {
+  background: var(--gradient-gray);
+  background: linear-gradient(165deg, rgba(0,0,0,1) 0%, var(--gradient-gray) 33%, var(--gradient-color) 67%);
+}
+
+* {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 300;
+}
+
+i {
+  display: block;
+  border-radius: 1em;
+  background: rgba(0,0,0,0.2); 
+  padding: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .cover {
@@ -24,8 +56,7 @@
 }
 
 h1 {
-  text-align: center; 
-  font-size: 2.5em;
+  text-align: center;
 }
 .emoji {
   font-size: 2em;
@@ -55,17 +86,20 @@ figure > div {
 }
 
 tw-link {
+  font-family: "Jersey 15", sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
   display: inline-block;
   padding: 0.5em;
   border-radius: 0.5em;
-  background: #333333;
+  background: rgb(0,0,0,.4);
   transition: all ease-in-out 0.1s;
   margin-top: 1em;
   color: #76b5c5;
 }
 
 tw-link:hover {
-  background: #444444;
+  background: rgb(255,255,255,.25);
   color: #91c4d1;
   transform: translateY(-4px);
 }
@@ -162,7 +196,24 @@ tw-link:active {
 
 tw-sidebar {
  display: none; 
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="Happy" color="green"></tw-tag><tw-tag name="Blessing" color="yellow"></tw-tag><tw-passagedata pid="1" name="Running END" tags="" position="1700,150" size="100,100">You rip open the wrapper, shoving the entire candy bar into your mouth. Instantly you can feel the sugar rush hit your bloodstream. Walking is for suckers, you&#39;re ready to run! You take off like a track start. At this pace, you&#39;ll be at the concert in no time!
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">let colorCount = -1
+const colors = ['green', 'blue', 'red', 'yellow', 'purple']
+const rootStyle = document.documentElement.style;
+
+function setLinkHandlers() {
+   setTimeout(() => {
+     document.querySelectorAll('tw-link').forEach((link) => {
+       link.addEventListener('click', () => {
+         colorCount++
+         if (colorCount === colors.length) colorCount = 0
+         rootStyle.setProperty('--gradient-color', `var(--gradient-${colors[colorCount]})`)
+         setTimeout(() => setLinkHandlers())
+       })
+     })
+   }, 100)
+}
+
+setLinkHandlers()</script><tw-tag name="Happy" color="green"></tw-tag><tw-tag name="Blessing" color="yellow"></tw-tag><tw-passagedata pid="1" name="Running END" tags="" position="1700,150" size="100,100">You rip open the wrapper, shoving the entire candy bar into your mouth. Instantly you can feel the sugar rush hit your bloodstream. Walking is for suckers, you&#39;re ready to run! You take off like a track start. At this pace, you&#39;ll be at the concert in no time!
 
 It turns out you are not a track star. After only a few blocks, your stomach begins to cramp. You try and power through the pain, but it keeps getting worse. You&#39;re seeing stars, and you&#39;re starting to sweat, and your guts seems to be trying to turn themselves inside out. You double over in pain, crying for your mommy. You never could handle a tummy ache. 
 
@@ -1431,12 +1482,13 @@ If you’re hungry I’m happy to assist
 I’m so tasty, you know you can’t resist
 You know you can’t resist
 You know you can’t resist
-You know you can’t resist]</tw-passagedata><tw-passagedata pid="32" name="Welcome" tags="" position="550,650" size="100,100">&lt;h1&gt;Welcome to &quot;The Concert&quot;&lt;/h1&gt;
-\&lt;div class=&quot;cover&quot;&gt;
-\  &lt;img src=&quot;https://thesestains.com/theconcert/cover.jpg&quot; /&gt;
-\&lt;/div&gt;
+You know you can’t resist]</tw-passagedata><tw-passagedata pid="32" name="Welcome" tags="" position="550,650" size="100,100">&lt;h1&gt;Welcome to &quot;The Concert&quot;!&lt;/h1&gt;
 \
-\&lt;figure&gt;
+\&lt;div class=&quot;cover&quot;&gt;
+  &lt;img src=&quot;https://thesestains.com/theconcert/cover.jpg&quot; /&gt;
+&lt;/div&gt;
+
+&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Welcome to The Concert&quot;:&lt;/figcaption&gt;
     &lt;div&gt;
     &lt;div class=&quot;emoji&quot;&gt;👋&lt;/div&gt;
@@ -1457,7 +1509,6 @@ Welcome to “The Concert: An Interactive Aural Odyssey” by These Stains Are W
 Let’s try it out:
 
 //You are about to play/listen to a choose your own adventure-type game/album that will likely blow your mind. You will embody the character of “the kid from the early These Stains songs.&quot; Your goal is to get from your home to the These Stains concert. Seems simple, right? Wrong! You gird your loins, ready for any challenges that may come your way.//
-
 What do you do?
 [[🎮 Start playing|Intro]]
 [[⏱ Take some more time to prepare|Preparation]]
