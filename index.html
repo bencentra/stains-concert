@@ -145,6 +145,10 @@ tw-link:active {
 }
 
 @media screen and (max-width: 768px) {
+  tw-story {
+  	background: linear-gradient(165deg, rgba(0,0,0,1) 0%, var(--gradient-gray) 25%, var(--gradient-color) 50%);  
+  }
+  
   .cover {
     width: 75%;
     margin: auto;
@@ -191,7 +195,7 @@ tw-link:active {
   }
   .flex {
     flex-direction: column; 
-    gap: 0;
+    margin-bottom: 16px;
   }
 }
 
@@ -231,7 +235,16 @@ function setLinkHandlers() {
    }, 100)
 }
 
-setLinkHandlers()</script><tw-tag name="Happy" color="green"></tw-tag><tw-tag name="Blessing" color="yellow"></tw-tag><tw-passagedata pid="1" name="Running END" tags="" position="1700,150" size="100,100">You rip open the wrapper, shoving the entire candy bar into your mouth. Instantly you can feel the sugar rush hit your bloodstream. Walking is for suckers, you&#39;re ready to run! You take off like a track start. At this pace, you&#39;ll be at the concert in no time!
+setLinkHandlers()
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.head.innerHTML += `
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+`
+})</script><tw-tag name="Happy" color="green"></tw-tag><tw-tag name="Blessing" color="yellow"></tw-tag><tw-passagedata pid="1" name="Running END" tags="" position="1700,150" size="100,100">You rip open the wrapper, shoving the entire candy bar into your mouth. Instantly you can feel the sugar rush hit your bloodstream. Walking is for suckers, you&#39;re ready to run! You take off like a track start. At this pace, you&#39;ll be at the concert in no time!
 
 It turns out you are not a track star. After only a few blocks, your stomach begins to cramp. You try and power through the pain, but it keeps getting worse. You&#39;re seeing stars, and you&#39;re starting to sweat, and your guts seems to be trying to turn themselves inside out. You double over in pain, crying for your mommy. You never could handle a tummy ache. 
 
