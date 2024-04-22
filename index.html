@@ -206,9 +206,13 @@ tw-sidebar {
 #copyright {
   text-align: center;
   font-size: 0.67em;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">let colorCount = -1
-const colors = ['green', 'blue', 'red', 'yellow', 'purple']
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">const colors = ['green', 'blue', 'red', 'yellow', 'purple']
 const rootStyle = document.documentElement.style;
+let colorCount = Math.floor(Math.random() * colors.length)
+
+function setGradientColor() {
+  rootStyle.setProperty('--gradient-color', `var(--gradient-${colors[colorCount]})`) 
+}
 
 function setLinkHandlers() {
    setTimeout(() => {
@@ -217,7 +221,7 @@ function setLinkHandlers() {
        link.addEventListener('click', () => {
          colorCount++
          if (colorCount === colors.length) colorCount = 0
-         rootStyle.setProperty('--gradient-color', `var(--gradient-${colors[colorCount]})`)
+         setGradientColor()
          setTimeout(() => setLinkHandlers())
        })
      })
@@ -236,8 +240,10 @@ function setLinkHandlers() {
 }
 
 setLinkHandlers()
+setGradientColor()
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('loaded')
   document.head.innerHTML += `
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
