@@ -197,6 +197,11 @@ tw-link:active {
 
 tw-sidebar {
  display: none; 
+}
+
+#copyright {
+  text-align: center;
+  font-size: 0.67em;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">let colorCount = -1
 const colors = ['green', 'blue', 'red', 'yellow', 'purple']
 const rootStyle = document.documentElement.style;
@@ -212,6 +217,17 @@ function setLinkHandlers() {
          setTimeout(() => setLinkHandlers())
        })
      })
+     const resetButton = document.querySelector('#reset')
+     if (resetButton) resetButton.addEventListener('click', () => {
+       if (window.confirm('All your progress will be lost. Are you sure you want to start a new game?')) {
+         setTimeout(() => {
+           window.sessionStorage.clear()
+           window.location.reload()
+         }, 0)
+       }
+     })
+     const copyright = document.querySelector("#copyright")
+     if (copyright) copyright.innerHTML = `© ${new Date().getFullYear()} These Stains Are Who I Am. Built on Twinery.org, additional design by Ben Centra.`
    }, 100)
 }
 
@@ -267,7 +283,13 @@ As I&#39;m running down the stairs
 My heart begins to burst
 I remember what&#39;s back there
 My fave These Stains t-shirt]
-</tw-passagedata><tw-passagedata pid="3" name="Bus" tags="" position="1100,750" size="100,100">&lt;h1&gt;STARS ALIGN&lt;/h1&gt;
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Bus" tags="" position="1100,750" size="100,100">&lt;h1&gt;STARS ALIGN&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Stars Align&quot;:&lt;/figcaption&gt;
@@ -313,6 +335,13 @@ Many stops to go, slip away
 Like the blurring lights outside
 Things don&#39;t always go my way
 But tonight the stars align]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="4" name="Shirt" tags="" position="1100,550" size="100,100">&lt;h1&gt;MY SHIRT&lt;/h1&gt;
 \
 \&lt;figure&gt;
@@ -361,7 +390,13 @@ Something feasting in the trash
 
 Is it looking at my shirt
 Is it looking at my god damn shirt]
-</tw-passagedata><tw-passagedata pid="5" name="Metal" tags="" position="1300,750" size="100,100">&lt;h1&gt;REACH YOUR GRAIL&lt;/h1&gt;
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Metal" tags="" position="1300,750" size="100,100">&lt;h1&gt;REACH YOUR GRAIL&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Reach Your Grail&quot;:&lt;/figcaption&gt;
@@ -397,7 +432,12 @@ Through the fire and the hail
 Can you reach your grail?
 Through the fire and the hail]
 
-</tw-passagedata><tw-passagedata pid="6" name="Folk" tags="" position="1300,350" size="100,100">&lt;h1&gt;LULLABY, GOODBYE&lt;/h1&gt;
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Folk" tags="" position="1300,350" size="100,100">&lt;h1&gt;LULLABY, GOODBYE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Lullaby, Goodbye&quot;:&lt;/figcaption&gt;
@@ -432,7 +472,12 @@ Lullabye, goodbye
 Hey kid, wake up, it&#39;s the end of the line
 You gotta get off the bus]
 
-</tw-passagedata><tw-passagedata pid="7" name="Dumpster" tags="" position="1300,550" size="100,100">&lt;h1&gt;DESIRE IN YOUR EYES&lt;/h1&gt;
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="Dumpster" tags="" position="1300,550" size="100,100">&lt;h1&gt;DESIRE IN YOUR EYES&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Desire In Your Eyes&quot;:&lt;/figcaption&gt;
@@ -468,7 +513,14 @@ Do you think you can fool me
 Should I risk an embrace, could this love go far 
 Or vanish with no trace, once you get my candy bar
 But I feel the spark, creature of the night
-Now It’s getting dark, will you be my light]</tw-passagedata><tw-passagedata pid="8" name="Walking" tags="" position="1500,350" size="100,100">&lt;h1&gt;FAST ENOUGH&lt;/h1&gt;
+Now It’s getting dark, will you be my light]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Walking" tags="" position="1500,350" size="100,100">&lt;h1&gt;FAST ENOUGH&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Fast Enough&quot;:&lt;/figcaption&gt;
@@ -521,7 +573,13 @@ Am I going fast enough
 I keep wishing but life keeps dishing
 So I’m missing all the rhythm and rhyme
 I wanna be on time]
-</tw-passagedata><tw-passagedata pid="9" name="Candy" tags="Blessing" position="1500,550" size="100,100">&lt;h1&gt;SUGAR&lt;/h1&gt;
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Candy" tags="Blessing" position="1500,550" size="100,100">&lt;h1&gt;SUGAR&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Sugar&quot;:&lt;/figcaption&gt;
@@ -562,7 +620,14 @@ I&#39;ll come back to find you another day with more
 Candy
 Sweet sweet sugar, all you wanted was my
 Candy
-Gave you some sugar, then you were gone]</tw-passagedata><tw-passagedata pid="10" name="Pet END" tags="" position="1500,150" size="100,100">&lt;h1&gt;IN THE DUMPSTER&lt;/h1&gt;
+Gave you some sugar, then you were gone]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Pet END" tags="" position="1500,150" size="100,100">&lt;h1&gt;IN THE DUMPSTER&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;In The Dumpster&quot;:&lt;/figcaption&gt;
@@ -606,8 +671,12 @@ Guess that I was in the dumpster all along
 Game over, game over
 In the dumpster all along]
 
-
-</tw-passagedata><tw-passagedata pid="11" name="Venue, Early" tags="" position="1500,750" size="100,100">&lt;h1&gt;I&#39;M EARLY&lt;/h1&gt;
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="Venue, Early" tags="" position="1500,750" size="100,100">&lt;h1&gt;I&#39;M EARLY&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;I&#39;m Early&quot;:&lt;/figcaption&gt;
@@ -644,7 +713,14 @@ The man next to me hears, says “I’m hungry too
 I’ll hold your spot in line if you go pick us up some food”
  
 I’m hungry, so hungry
-He’s buying, should I go]</tw-passagedata><tw-passagedata pid="12" name="Hitchhiking" tags="" position="1700,550" size="100,100">&lt;h1&gt;SPARK OF HOPE&lt;/h1&gt;
+He’s buying, should I go]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="Hitchhiking" tags="" position="1700,550" size="100,100">&lt;h1&gt;SPARK OF HOPE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Spark Of Hope&quot;:&lt;/figcaption&gt;
@@ -681,7 +757,14 @@ Spark of hope
 Spark of hope
 Spark of hope
 
-A beat-up sedan with peeling gray paint skids to a stop beside me. The windows down, I see four teenagers with colored hair, beanie hats, and trendy vintage clothes. A stale, skunky aroma with hints of nacho chip dust wafts on the evening breeze. They stare at me for a second with a mix of pity and curiosity, before the skinny guy in the driver&#39;s seat asks, &quot;need a lift?&quot; &quot;I&#39;m going to the concert,&quot; I say, and the girl in the back stoically responds, &quot;dope, hop in.&quot; Is this a happy coincidence, or another distraction on my quest?]</tw-passagedata><tw-passagedata pid="13" name="Running END" tags="" position="1700,150" size="100,100">&lt;h1&gt;FASTER! FASTER!&lt;/h1&gt;
+A beat-up sedan with peeling gray paint skids to a stop beside me. The windows down, I see four teenagers with colored hair, beanie hats, and trendy vintage clothes. A stale, skunky aroma with hints of nacho chip dust wafts on the evening breeze. They stare at me for a second with a mix of pity and curiosity, before the skinny guy in the driver&#39;s seat asks, &quot;need a lift?&quot; &quot;I&#39;m going to the concert,&quot; I say, and the girl in the back stoically responds, &quot;dope, hop in.&quot; Is this a happy coincidence, or another distraction on my quest?]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="Running END" tags="" position="1700,150" size="100,100">&lt;h1&gt;FASTER! FASTER!&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Faster! Faster!&quot;:&lt;/figcaption&gt;
@@ -735,7 +818,14 @@ Faster faster, ‘til I’m gonna blow
 Oh no, I think I’m gonna blow
 Game over man, game over
 Here it comes, blep
-Mommy…]</tw-passagedata><tw-passagedata pid="14" name="Teens" tags="" position="1900,550" size="100,100">&lt;h1&gt;RUSTY VOLVO&lt;/h1&gt;
+Mommy…]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="Teens" tags="" position="1900,550" size="100,100">&lt;h1&gt;RUSTY VOLVO&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Rusty Volvo&quot;:&lt;/figcaption&gt;
@@ -779,7 +869,14 @@ Prove that you’re cool, more real than the rest
 We ain’t got shit, we got no dough
 So we just drive around in this rusty Volvo
 We don’t have jobs, we won’t go home
-So we just drive around in this rusty Volvo]</tw-passagedata><tw-passagedata pid="15" name="Family END" tags="" position="1900,150" size="100,100">&lt;h1&gt;THE COUNTING SONG&lt;/h1&gt;
+So we just drive around in this rusty Volvo]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="Family END" tags="" position="1900,150" size="100,100">&lt;h1&gt;THE COUNTING SONG&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;The Counting Song&quot;:&lt;/figcaption&gt;
@@ -827,7 +924,14 @@ Everybody!
 One, two, three fluffy clouds in the sky
 Four, five, six pretty birds flying high
 One, two, three are the chances you get
-Four, five, six, all good fortune is spent]</tw-passagedata><tw-passagedata pid="16" name="Bonding" tags="" position="2100,550" size="100,100">&lt;h1&gt;THIS COULD BE&lt;/h1&gt;
+Four, five, six, all good fortune is spent]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="Bonding" tags="" position="2100,550" size="100,100">&lt;h1&gt;THIS COULD BE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;This Could Be&quot;:&lt;/figcaption&gt;
@@ -867,8 +971,14 @@ I fumble in my pockets, I can’t seem like a narc
 My bright and shiny future is quickly growing dark
 
 Or maybe this could be
-The first time I try weed
-]</tw-passagedata><tw-passagedata pid="17" name="Mom" tags="" position="2100,350" size="100,100">&lt;h1&gt;MY NEW DAD&lt;/h1&gt;
+The first time I try weed]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="Mom" tags="" position="2100,350" size="100,100">&lt;h1&gt;MY NEW DAD&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;My New Dad&quot;:&lt;/figcaption&gt;
@@ -907,7 +1017,14 @@ Guess I came on way too hard, should’ve used a softer touch
 The girl in the backseat sighs and says her folks’ divorce was rough
 The driver cranks up the radio, I guess he’s had enough
 
-I’m a little sad, but I just want to connect with my new dad]</tw-passagedata><tw-passagedata pid="18" name="Venue, On Time" tags="" position="2500,550" size="100,100">&lt;h1&gt;THESE STAINS ARE WHO WE ARE&lt;/h1&gt;
+I’m a little sad, but I just want to connect with my new dad]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="Venue, On Time" tags="" position="2500,550" size="100,100">&lt;h1&gt;THESE STAINS ARE WHO WE ARE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;These Stains Are Who We Are&quot;:&lt;/figcaption&gt;
@@ -958,7 +1075,14 @@ These stains remind us tomorrow’s a new day
 
 These stains are who I am
 These stains are who we are
-These stains are here and will never go away]</tw-passagedata><tw-passagedata pid="19" name="Band" tags="" position="2700,600" size="200,200">&lt;h1&gt;ENCORE! ENCORE!&lt;/h1&gt;
+These stains are here and will never go away]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="Band" tags="" position="2700,600" size="200,200">&lt;h1&gt;ENCORE! ENCORE!&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;These Stains Are Who I Am&quot;:&lt;/figcaption&gt;
@@ -989,7 +1113,12 @@ Andrew and Ben
 \&lt;iframe style=&quot;border-radius:12px&quot; src=&quot;https://open.spotify.com/embed/album/4pb3bayzpGy3fxuYGhAmZl?utm_source=generator&quot; width=&quot;100%&quot; height=&quot;352&quot; frameBorder=&quot;0&quot; allowfullscreen=&quot;&quot; allow=&quot;autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture&quot; loading=&quot;lazy&quot;&gt;&lt;/iframe&gt;
 \&lt;/div&gt;\
 
-</tw-passagedata><tw-passagedata pid="20" name="Drugs" tags="Blessing" position="2300,550" size="100,100">&lt;h1&gt;THE BURDEN OF INNOCENCE&lt;/h1&gt;
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="Drugs" tags="Blessing" position="2300,550" size="100,100">&lt;h1&gt;THE BURDEN OF INNOCENCE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;The Burden Of Innocence&quot;:&lt;/figcaption&gt;
@@ -1026,7 +1155,14 @@ My mind was caged, shattered the bars
 Canary flew the coal mine
 
 Shouldered the weight, now I stand tall
-Free from the burden of innocence]</tw-passagedata><tw-passagedata pid="21" name="DARE END" tags="" position="2300,150" size="100,100">&lt;h1&gt;STAYIN&#39; CLEAN&lt;/h1&gt;
+Free from the burden of innocence]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="DARE END" tags="" position="2300,150" size="100,100">&lt;h1&gt;STAYIN&#39; CLEAN&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Stayin&#39; Clean&quot;:&lt;/figcaption&gt;
@@ -1092,7 +1228,14 @@ Now I’m gonna have to call the cops
 That’s enough, get out of my car
 I tried being nice but you’re too bizarre
 Game over kid, you’re way across town
-Good luck getting to the concert now]</tw-passagedata><tw-passagedata pid="22" name="Hitchhiking 2" tags="" position="1700,350" size="100,100">&lt;h1&gt;SPARK OF HOPE&lt;/h1&gt;
+Good luck getting to the concert now]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="Hitchhiking 2" tags="" position="1700,350" size="100,100">&lt;h1&gt;SPARK OF HOPE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Spark Of Hope&quot;:&lt;/figcaption&gt;
@@ -1129,7 +1272,14 @@ Spark of hope
 Spark of hope
 Spark of hope
 
-An ancient beige minivan is idling before me. On the passenger side, a man with a mop of graying hair rolls down the hand-crank window in a jerky, uneven motion. Out of breath from the mild exertion, he pants, &quot;need a lift?&quot; His wife smiles at me from the driver&#39;s seat, and I hear children shouting from the back  over a cassette of sing-along songs. &quot;I&#39;m going to the concert,&quot; I say, and the man cheerfully replies, &quot;That&#39;s where we&#39;re going! Hop in!&quot; Is this a happy coincidence, or another distraction on my quest?]</tw-passagedata><tw-passagedata pid="23" name="Venue, Late" tags="" position="2500,350" size="100,100">&lt;h1&gt;I&#39;M LATE&lt;/h1&gt;
+An ancient beige minivan is idling before me. On the passenger side, a man with a mop of graying hair rolls down the hand-crank window in a jerky, uneven motion. Out of breath from the mild exertion, he pants, &quot;need a lift?&quot; His wife smiles at me from the driver&#39;s seat, and I hear children shouting from the back  over a cassette of sing-along songs. &quot;I&#39;m going to the concert,&quot; I say, and the man cheerfully replies, &quot;That&#39;s where we&#39;re going! Hop in!&quot; Is this a happy coincidence, or another distraction on my quest?]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="Venue, Late" tags="" position="2500,350" size="100,100">&lt;h1&gt;I&#39;M LATE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;I&#39;m Late&quot;:&lt;/figcaption&gt;
@@ -1170,7 +1320,14 @@ I didn’t get sick, thrown in jail, or attacked
 I can hear the crowd go wild, I hope that I just missed the opening act
 
 I’m late, but not too late
-I’m late, time for the show]</tw-passagedata><tw-passagedata pid="24" name="Errand" tags="" position="1700,750" size="100,100">&lt;h1&gt;HOT MEAT&lt;/h1&gt;
+I’m late, time for the show]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="Errand" tags="" position="1700,750" size="100,100">&lt;h1&gt;HOT MEAT&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Hot Meat&quot;:&lt;/figcaption&gt;
@@ -1195,7 +1352,14 @@ What do you do?
 &lt;hr/&gt;
 (text-style:&quot;superscript&quot;)[Rain rattles down the gutters and drips off my fedora. I see silhouettes of happy people chowing down on dinner in every apartment window. But here I am, on the street, stomach empty as a bum’s bottle of rye. I can feel eyes on me as I walk, burning a hole in the back of my head. I turn and see her, a most beautiful creature. But I can’t be distracted by dames right now. “Beat it, toots,” I say, and the huge rat scurries off into a storm drain. 
 
-I turn down a side street towards my destination, out of the cold comfort of the street lights. My phone chimes, “You have arrived”, but I’m flummoxed as a polar bear in Hawai’i. I see two storefronts with two nearly identical neon signs, both spelling out the words: “Hot Meat.” One is adorned with illustrations of a juicy burger, steamy fries, and a cold milkshake. The other depicts a slender pair of legs with stilettos and fishnet stockings. I’m a tough man to fool, and yet, I’m suddenly unsure of my next move…]</tw-passagedata><tw-passagedata pid="25" name="Waiting" tags="" position="1900,750" size="100,100">&lt;h1&gt;GREASY LOVE&lt;/h1&gt;
+I turn down a side street towards my destination, out of the cold comfort of the street lights. My phone chimes, “You have arrived”, but I’m flummoxed as a polar bear in Hawai’i. I see two storefronts with two nearly identical neon signs, both spelling out the words: “Hot Meat.” One is adorned with illustrations of a juicy burger, steamy fries, and a cold milkshake. The other depicts a slender pair of legs with stilettos and fishnet stockings. I’m a tough man to fool, and yet, I’m suddenly unsure of my next move…]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="Waiting" tags="" position="1900,750" size="100,100">&lt;h1&gt;GREASY LOVE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Greasy Love&quot;:&lt;/figcaption&gt;
@@ -1239,7 +1403,14 @@ Oh serve me up some greasy love
 You know that I want it you know that I need it
 
 Love!
-Greasy love!]</tw-passagedata><tw-passagedata pid="26" name="Jail END" tags="" position="2300,1150" size="100,100">&lt;h1&gt;BURGER JAIL&lt;/h1&gt;
+Greasy love!]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Jail END" tags="" position="2300,1150" size="100,100">&lt;h1&gt;BURGER JAIL&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Burger Jail&quot;:&lt;/figcaption&gt;
@@ -1276,8 +1447,14 @@ Breaking rocks with a pickaxe, I’ve got no idea why
 My mom always said I looked good in stripes
 Now I’m serving hard time, yeah it’s twenty to life
 The warden just laughs, saying “game over, son”
-But my life in burger jail has just begun
-]</tw-passagedata><tw-passagedata pid="27" name="Fight" tags="" position="1700,950" size="100,100">&lt;h1&gt;FISTS BEGIN TO FLY&lt;/h1&gt;
+But my life in burger jail has just begun]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="Fight" tags="" position="1700,950" size="100,100">&lt;h1&gt;FISTS BEGIN TO FLY&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Fists Begin To Fly&quot;:&lt;/figcaption&gt;
@@ -1312,7 +1489,14 @@ Should I break it up, is there something I can say?
 Or just hang back, pull out my phone, maybe record a little bit
 “Think of the likes” “I could go viral” “Just a 60 second clip”
 This is my chance, I cannot delay
-Ah, ah, ah!]</tw-passagedata><tw-passagedata pid="28" name="Punched END" tags="" position="1900,1150" size="100,100">&lt;h1&gt;PUNCHED OUT!&lt;/h1&gt;
+Ah, ah, ah!]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Punched END" tags="" position="1900,1150" size="100,100">&lt;h1&gt;PUNCHED OUT!&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Punched Out!&quot;:&lt;/figcaption&gt;
@@ -1348,7 +1532,14 @@ He was coming to get me and
 Punched out!
 
 Game over, game over
-Game over, game over]</tw-passagedata><tw-passagedata pid="29" name="Mediator" tags="Blessing" position="1900,950" size="100,100">&lt;h1&gt;THE MUSIC MAKES US ONE&lt;/h1&gt;
+Game over, game over]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="Mediator" tags="Blessing" position="1900,950" size="100,100">&lt;h1&gt;THE MUSIC MAKES US ONE&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;The Music Makes Us One&quot;:&lt;/figcaption&gt;
@@ -1387,7 +1578,13 @@ Surrounded by all my new friends it’s time to get into the groove
 But the music makes us one
 And we have plenty
 So much love under the sun]
-</tw-passagedata><tw-passagedata pid="30" name="Club END" tags="" position="2100,1150" size="100,100">&lt;h1&gt;GROUNDED&lt;/h1&gt;
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="30" name="Club END" tags="" position="2100,1150" size="100,100">&lt;h1&gt;GROUNDED&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Grounded&quot;:&lt;/figcaption&gt;
@@ -1427,7 +1624,14 @@ I’m grounded
 Bass is pumping, heart is thumping
 (Game over)
 Sweaty naked bodies grinding, humping
-(I’m grounded)]</tw-passagedata><tw-passagedata pid="31" name="Food" tags="Blessing" position="2100,950" size="100,100">&lt;h1&gt;EAT ME UP&lt;/h1&gt;
+(I’m grounded)]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="31" name="Food" tags="Blessing" position="2100,950" size="100,100">&lt;h1&gt;EAT ME UP&lt;/h1&gt;
 \
 \&lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Eat Me Up&quot;:&lt;/figcaption&gt;
@@ -1484,7 +1688,14 @@ If you’re hungry I’m happy to assist
 I’m so tasty, you know you can’t resist
 You know you can’t resist
 You know you can’t resist
-You know you can’t resist]</tw-passagedata><tw-passagedata pid="32" name="Welcome" tags="" position="550,650" size="100,100">&lt;h1 style=&quot;margin-bottom: 0;&quot;&gt;Welcome to &quot;The Concert&quot;!&lt;/h1&gt;
+You know you can’t resist]
+
+&lt;hr /&gt;
+\&lt;div class=&quot;flex&quot;&gt;
+\[[🏠 Back to the start |Intro]]
+\&lt;div id=&quot;reset&quot;&gt;[[🗑️ Start a new game|Intro]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="32" name="Welcome" tags="" position="550,650" size="100,100">&lt;h1 style=&quot;margin-bottom: 0;&quot;&gt;Welcome to &quot;The Concert&quot;!&lt;/h1&gt;
 \&lt;div style=&quot;font-size: 0.75em; text-align: center;&quot;&gt;by &lt;a style=&quot;color: white; font-weight: bold&quot; href=&quot;https://linktr.ee/thesestains&quot;&gt;These Stains Are Who I Am&lt;/a&gt;&lt;/div&gt;
 \
 \&lt;div style=&quot;text-align: center; font-size: 1.5em; margin-top: 64px;&quot;&gt;
@@ -1527,7 +1738,9 @@ Though best experienced as a game, the album version of &quot;The Concert&quot; 
 \&lt;iframe style=&quot;border: 0; width: 350px; height: 470px;&quot; src=&quot;https://bandcamp.com/EmbeddedPlayer/album=1691275205/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/&quot; seamless&gt;&lt;a href=&quot;https://thesestainsarewhoiam.bandcamp.com/album/the-concert-an-interactive-aural-odyssey&quot;&gt;The Concert: An Interactive Aural Odyssey by These Stains Are Who I Am&lt;/a&gt;&lt;/iframe&gt;
 \&lt;iframe style=&quot;border-radius:12px&quot; src=&quot;https://open.spotify.com/embed/album/4pb3bayzpGy3fxuYGhAmZl?utm_source=generator&quot; width=&quot;100%&quot; height=&quot;352&quot; frameBorder=&quot;0&quot; allowfullscreen=&quot;&quot; allow=&quot;autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture&quot; loading=&quot;lazy&quot;&gt;&lt;/iframe&gt;
 \&lt;/div&gt;\
-\Don&#39;t forget to &lt;a href=&quot;https://linktr.ee/thesestains&quot; target=&quot;_blank&quot; style=&quot;color: white; font-weight: bold;&quot;&gt;follow us&lt;/a&gt; on all the places for more music and other projects!</tw-passagedata><tw-passagedata pid="33" name="Preparation" tags="" position="750,850" size="100,100">&lt;h1&gt;PREPARATION&lt;/h1&gt;
+\Don&#39;t forget to &lt;a href=&quot;https://linktr.ee/thesestains&quot; target=&quot;_blank&quot; style=&quot;color: white; font-weight: bold;&quot;&gt;follow us&lt;/a&gt; on all the places for more music and other projects!
+
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="33" name="Preparation" tags="" position="750,850" size="100,100">&lt;h1&gt;PREPARATION&lt;/h1&gt;
 \//You decide to wait a bit longer and get ready for the adventure ahead. No pressure, we want you to have a good time! Here are some pictures of our pets, Dusty and Stan, to calm your nerves. Look at those cute lil’ guys! When you’re ready you can begin the game, or you can go back and read the instructions again.//
 
 &lt;div class=&quot;image-grid&quot;&gt;
@@ -1543,7 +1756,9 @@ Though best experienced as a game, the album version of &quot;The Concert&quot; 
 \What do you do?
 [[🎮 Start playing|Intro]]
 [[📕 Read the instructions again|Welcome]]
-&lt;br/&gt;&lt;br/&gt;</tw-passagedata></tw-storydata>
+&lt;br/&gt;&lt;br/&gt;
+
+&lt;div id=&quot;copyright&quot;&gt;&lt;/div&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
