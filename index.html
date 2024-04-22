@@ -204,6 +204,7 @@ const rootStyle = document.documentElement.style;
 function setLinkHandlers() {
    setTimeout(() => {
      document.querySelectorAll('tw-link').forEach((link) => {
+       link.setAttribute('title', '')
        link.addEventListener('click', () => {
          colorCount++
          if (colorCount === colors.length) colorCount = 0
@@ -1483,15 +1484,18 @@ If you’re hungry I’m happy to assist
 I’m so tasty, you know you can’t resist
 You know you can’t resist
 You know you can’t resist
-You know you can’t resist]</tw-passagedata><tw-passagedata pid="32" name="Welcome" tags="" position="550,650" size="100,100">&lt;h1&gt;Welcome to &quot;The Concert&quot;!&lt;/h1&gt;
-\&lt;div style=&quot;text-align: center; font-size: 1.5em&quot;&gt;
+You know you can’t resist]</tw-passagedata><tw-passagedata pid="32" name="Welcome" tags="" position="550,650" size="100,100">&lt;h1 style=&quot;margin-bottom: 0;&quot;&gt;Welcome to &quot;The Concert&quot;!&lt;/h1&gt;
+\&lt;div style=&quot;font-size: 0.75em; text-align: center;&quot;&gt;by &lt;a style=&quot;color: white; font-weight: bold&quot; href=&quot;https://linktr.ee/thesestains&quot;&gt;These Stains Are Who I Am&lt;/a&gt;&lt;/div&gt;
+\
+\&lt;div style=&quot;text-align: center; font-size: 1.5em; margin-top: 64px;&quot;&gt;
 \[[🎮 Start playing|Intro]]
-&lt;p style=&quot;margin: 0; font-size: 0.50em&quot;&gt;First time here? Read on for instructions!&lt;/p&gt;
-&lt;/div&gt;
-\&lt;div class=&quot;cover&quot;&gt;
-  &lt;img src=&quot;https://thesestains.com/theconcert/cover.jpg&quot; /&gt;
+\&lt;p style=&quot;margin: 0; font-size: 0.5em&quot;&gt;First time here? Scroll for instructions!&lt;/p&gt;
 &lt;/div&gt;
 
+\&lt;div class=&quot;cover&quot;&gt;
+  &lt;a href=&quot;https://distrokid.com/hyperfollow/thesestainsarewhoiam/the-concert-an-interactive-aural-odyssey-2&quot;&gt;&lt;img src=&quot;https://thesestains.com/theconcert/cover.jpg&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+\
 &lt;figure&gt;
     &lt;figcaption&gt;Listen to &quot;Welcome to The Concert&quot;:&lt;/figcaption&gt;
     &lt;div&gt;
